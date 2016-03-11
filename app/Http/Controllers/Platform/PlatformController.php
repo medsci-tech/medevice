@@ -13,4 +13,8 @@ class PlatformController extends Controller
 //        $this->middleware('guest', ['except' => 'logout']);
     }
 
+    public function suppliers(Request $request) {
+
+    }
+
 } /*class*/

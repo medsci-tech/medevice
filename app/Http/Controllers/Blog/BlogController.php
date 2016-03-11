@@ -9,5 +9,8 @@ use App\Http\Controllers\Controller;
 
 class BlogController extends Controller
 {
-    //
-}
+    public function index(Request $request) {
+
+    }
+
+} /*class*/

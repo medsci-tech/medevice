@@ -13,4 +13,8 @@ class ShopController extends Controller
 //        $this->middleware('guest', ['except' => 'logout']);
     }
 
+    public function products(Request $request) {
+
+    }
+
 } /*class*/

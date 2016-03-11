@@ -13,4 +13,12 @@ class PersonalController extends Controller
 //        $this->middleware('guest', ['except' => 'logout']);
     }
 
+    public function information(Request $request) {
+
+    }
+
+    public function community(Request $request) {
+
+    }
+
 } /*class*/

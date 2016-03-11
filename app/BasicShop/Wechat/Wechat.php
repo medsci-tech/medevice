@@ -41,7 +41,6 @@ class Wechat
             (new MenuItem("药械平台"))->buttons([
                 new MenuItem('入驻厂家', 'view', url('/platform/suppliers')),
                 new MenuItem('产品专区', 'view', url('/shop/products')),
-                new MenuItem('产品专区', 'view', url('/shop/personal')),
             ]),
             (new MenuItem("药械知识"))->buttons([
                 new MenuItem('最新资讯', 'view', url('/message/news')),

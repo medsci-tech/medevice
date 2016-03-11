@@ -25,8 +25,16 @@ class Wechat
     }
 
 
-    private function createMenu()
+    private function createMenuItem()
     {
+
     }
+
+    public function createMenu()
+    {
+
+    }
+
+
 
 } /*class*/

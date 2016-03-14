@@ -12,7 +12,12 @@ class CreateSupplierTypesTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('supplier_types', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('type_en', 11)->comment('供应商类型-英');
+            $table->string('type_ch', 11)->comment('供应商类型-中');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -22,6 +27,6 @@ class CreateSupplierTypesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('supplier_types');
     }
 }

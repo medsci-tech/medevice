@@ -12,7 +12,13 @@ class CreateCustomerTypesTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('customer_types', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('type_en', 11)->comment('用户类型-英');
+            $table->string('type_ch', 11)->comment('用户类型-中');
+            $table->timestamps();
+        });
+
     }
 
     /**
@@ -22,6 +28,6 @@ class CreateCustomerTypesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('customer_types');
     }
 }

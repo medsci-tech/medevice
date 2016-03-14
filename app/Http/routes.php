@@ -27,5 +27,9 @@ Route::get('/', function () {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+    Route::group(['prefix' => 'wechat', 'namespace' => 'Wechat'], function () {
+        Route::get('/', 'WechatController@serve');
+        Route::get('/menu', 'WechatController@menu');
+    });
+
 });

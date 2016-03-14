@@ -38,17 +38,17 @@ class Wechat
     private function createMenuItem()
     {
         return [
-            (new MenuItem("Ò©ĞµÆ½Ì¨"))->buttons([
-                new MenuItem('Èë×¤³§¼Ò', 'view', url('/platform/suppliers')),
-                new MenuItem('²úÆ·×¨Çø', 'view', url('/shop/products')),
+            (new MenuItem("è¯æ¢°å¹³å°"))->buttons([
+                new MenuItem('å…¥é©»å‚å®¶', 'view', url('/platform/suppliers')),
+                new MenuItem('äº§å“ä¸“åŒº', 'view', url('/shop/products')),
             ]),
-            (new MenuItem("Ò©ĞµÖªÊ¶"))->buttons([
-                new MenuItem('×îĞÂ×ÊÑ¶', 'view', url('/message/news')),
-                new MenuItem('Ö±²¥½²ÌÃ', 'view', url('/message/video')),
+            (new MenuItem("è¯æ¢°çŸ¥è¯†"))->buttons([
+                new MenuItem('æœ€æ–°èµ„è®¯', 'view', url('/message/news')),
+                new MenuItem('ç›´æ’­è®²å ‚', 'view', url('/message/video')),
             ]),
-            (new MenuItem("Ò©ĞµÉçÇø"))->buttons([
-                new MenuItem('¸öÈËÖĞĞÄ', 'view', url('/personal/information')),
-                new MenuItem('Ò©ĞµÈ¦×Ó', 'view', url('/personal/community')),
+            (new MenuItem("è¯æ¢°ç¤¾åŒº"))->buttons([
+                new MenuItem('ä¸ªäººä¸­å¿ƒ', 'view', url('/personal/information')),
+                new MenuItem('è¯æ¢°åœˆå­', 'view', url('/personal/community')),
             ]),
         ];
 
@@ -69,7 +69,7 @@ class Wechat
 
     public function messageEventCallback() {
         return function ($message) {
-            return Message::make('text')->content('ÄúºÃ!');
+            return Message::make('text')->content('æ‚¨å¥½!');
         };
     }
 
@@ -77,7 +77,7 @@ class Wechat
     {
         return function ($event) {
             $openId = $event['FromUserName'];
-            $content = 'àË!»¶Ó­¹Ø×¢Ò©ĞµÍ¨!';
+            $content = 'å—¨!æ¬¢è¿å…³æ³¨è¯æ¢°é€š!';
             return Message::make('text')->content($content);
         };
     }

@@ -12,7 +12,6 @@ class CreateCustomersTable extends Migration
      */
     public function up()
     {
-
         Schema::create('customers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('type_id')->unsigned()->comment('用户类型ID');
@@ -20,9 +19,6 @@ class CreateCustomersTable extends Migration
 
             $table->string('phone', 31)->nullable()->comment('personal telephone');
             $table->string('password', 31)->nullable()->comment('personal password');
-
-            $table->string('auth_code', 11)->nullable()->comment('sms auth code');
-            $table->timestamp('auth_code_expired')->nullable()->comment('sms auth code expired');
 
             $table->string('openid')->comment('wechat open id');
             $table->string('nickname')->nullable()->comment('wechat nick name');

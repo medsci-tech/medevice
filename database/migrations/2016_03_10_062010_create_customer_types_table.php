@@ -18,7 +18,6 @@ class CreateCustomerTypesTable extends Migration
             $table->string('type_ch', 11)->comment('用户类型-中');
             $table->timestamps();
         });
-
     }
 
     /**

@@ -37,4 +37,10 @@ Route::group(['middleware' => ['web']], function () {
         Route::post('/store', 'RegisterController@store');
     });
 
+    Route::group(['prefix' => 'register'], function () {
+        Route::get('/create', 'RegisterController@create');
+        Route::post('/store', 'RegisterController@store');
+        Route::get('/sms', 'RegisterController@sms');
+    });
+
 });

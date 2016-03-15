@@ -1,17 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: DELL
- * Date: 2016/3/9
- * Time: 16:24
- */
 
 namespace App\BasicShop\Wechat;
 
+use App\Constants\AppConstant;
+use App\Models\Customer;
+use App\Models\CustomerType;
 use Overtrue\Wechat\Server;
 use Overtrue\Wechat\Message;
 use Overtrue\Wechat\MenuItem;
 use Overtrue\Wechat\Menu;
+use Overtrue\Wechat\Auth;
 
 
 class Wechat
@@ -76,11 +74,35 @@ class Wechat
     public function subscribeEventCallback()
     {
         return function ($event) {
+            \Log::info('subscribe' . $event);
             $openId = $event['FromUserName'];
-            $content = '嗨!欢迎关注药械通!';
-            return Message::make('text')->content($content);
+            $customer = Customer::where('openid', $openId)->first();
+            if ($customer) {
+                return Message::make('text')->content('欢迎您回来!');
+            }
+
+            $customer = new Customer();
+            $customer->openid = $openId;
+            $typeId = CustomerType::where('type_en', AppConstant::CUSTOMER_COMMON)->first()->id;
+            $customer->type_id = $typeId;
+            $customer->save();
+            return Message::make('text')->content('嗨!欢迎关注药械通!');
         };
     }
 
+    /**
+     * @param string $jump_url
+     * @return null|\Overtrue\Wechat\Utils\Bag
+     */
+    public function authorizeUser($jump_url)
+    {
+        $appId = $this->_appId;
+        $secret = $this->_secret;
+        $auth = new Auth($appId, $secret);
+        $result = $auth->authorize(url($jump_url), 'snsapi_base,snsapi_userinfo');
+
+        \Session::put('web_token', $result->get('access_token'));
+        return $auth->getUser($result->get('openid'), $result->get('access_token'));
+    }
 
 } /*class*/

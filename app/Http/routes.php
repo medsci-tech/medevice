@@ -32,4 +32,9 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/menu', 'WechatController@menu');
     });
 
+    Route::group(['prefix' => 'register'], function () {
+        Route::get('/create', 'RegisterController@create');
+        Route::post('/store', 'RegisterController@store');
+    });
+
 });

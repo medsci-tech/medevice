@@ -160,6 +160,7 @@ return [
          * Customer Service Provider
          * */
         App\Providers\WechatServiceProvider::class,
+        App\Providers\HelperServiceProvider::class,
 
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
@@ -213,6 +214,7 @@ return [
          * Customer Facades
          * */
         'Wechat'    => App\BasicShop\Wechat\Facades\Wechat::class,
+        'Helper'    => App\BasicShop\Helper\Facades\Helper::class,
 
     ],
 

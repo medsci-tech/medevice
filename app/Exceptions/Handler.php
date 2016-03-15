@@ -2,6 +2,8 @@
 
 namespace App\Exceptions;
 
+use App\BasicShop\Exceptions\UserNotCachedException;
+use App\BasicShop\Exceptions\UserNotSubscribedException;
 use Exception;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -21,6 +23,8 @@ class Handler extends ExceptionHandler
         HttpException::class,
         ModelNotFoundException::class,
         ValidationException::class,
+        UserNotCachedException::class,
+        UserNotSubscribedException::class,
     ];
 
     /**

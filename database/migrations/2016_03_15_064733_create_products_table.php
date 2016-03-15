@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProductsTables extends Migration
+class CreateProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,6 @@ class CreateProductsTables extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('products', function (Blueprint $table) {
-        });
     }
 
     /**

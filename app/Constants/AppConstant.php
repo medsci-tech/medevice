@@ -17,4 +17,7 @@ class AppConstant {
     /* wechat expire interval */
     const WECHAT_EXPIRE_INTERVAL = 30;
     const AUTH_CODE_EXPIRE_INTERVAL = 30;
+
+    /* customer type */
+    const CUSTOMER_COMMON       = 'common';
 }

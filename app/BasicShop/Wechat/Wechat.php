@@ -47,6 +47,7 @@ class Wechat
             (new MenuItem("药械社区"))->buttons([
                 new MenuItem('个人中心', 'view', url('/personal/information')),
                 new MenuItem('药械圈子', 'view', url('/personal/community')),
+                new MenuItem('调试', 'view', url('/register/create')),
             ]),
         ];
 

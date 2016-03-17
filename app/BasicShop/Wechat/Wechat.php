@@ -42,12 +42,12 @@ class Wechat
             ]),
             (new MenuItem("药械知识"))->buttons([
                 new MenuItem('最新资讯', 'view', url('/message/news')),
-                new MenuItem('直播讲堂', 'view', url('/message/video')),
+                //new MenuItem('直播讲堂', 'view', url('/message/video')),
             ]),
             (new MenuItem("药械社区"))->buttons([
                 new MenuItem('个人中心', 'view', url('/personal/information')),
-                new MenuItem('药械圈子', 'view', url('/personal/community')),
-                new MenuItem('调试', 'view', url('/register/create')),
+                //new MenuItem('药械圈子', 'view', url('/personal/community')),
+                //new MenuItem('调试', 'view', url('/register/create')),
             ]),
         ];
 

@@ -12,7 +12,7 @@ class RegisterController extends Controller
 {
     function __construct()
     {
-        $this->middleware('auth.wechat');
+        $this->middleware('auth');
     }
 
     public function create(Request $request)

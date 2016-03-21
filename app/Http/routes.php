@@ -26,21 +26,15 @@ Route::get('/', function () {
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
+//Route::group(['middleware' => ['web']], function () {
     Route::group(['prefix' => 'wechat', 'namespace' => 'Wechat'], function () {
         Route::any('/', 'WechatController@serve');
         Route::get('/menu', 'WechatController@menu');
     });
 
-    Route::group(['prefix' => 'register'], function () {
+    Route::group(['prefix' => 'register', 'namespace' => 'Register'], function () {
         Route::get('/create', 'RegisterController@create');
         Route::post('/store', 'RegisterController@store');
+        Route::any('/send-message', 'RegisterController@sendMessage');
     });
-
-    Route::group(['prefix' => 'register'], function () {
-        Route::get('/create', 'RegisterController@create');
-        Route::post('/store', 'RegisterController@store');
-        Route::get('/sms', 'RegisterController@sms');
-    });
-
-});
+//});

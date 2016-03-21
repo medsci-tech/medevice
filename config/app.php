@@ -156,14 +156,13 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         /*
-         * Customer Service Provider
+         * Med Service Provider
          * */
         App\Providers\WechatServiceProvider::class,
         App\Providers\HelperServiceProvider::class,
-
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-
+        App\Providers\MessageServiceProvider::class,
     ],
 
     /*
@@ -211,11 +210,11 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
 
         /*
-         * Customer Facades
+         * Med Facades
          * */
         'Wechat'    => App\BasicShop\Wechat\Facades\Wechat::class,
         'Helper'    => App\BasicShop\Helper\Facades\Helper::class,
-
+        'MessageSender' => App\BasicShop\Message\Facades\MessageSender::class,
     ],
 
 ];

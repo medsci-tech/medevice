@@ -14,7 +14,7 @@ class CreateCustomersTable extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('type_id')->unsigned()->comment('用户类型ID');
+            $table->integer('type_id')->unsigned()->comment('鐢ㄦ埛绫诲瀷ID');
             $table->foreign('type_id')->references('id')->on('customer_types');
 
             $table->string('phone', 31)->nullable()->comment('personal telephone');

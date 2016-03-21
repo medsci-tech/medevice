@@ -14,8 +14,8 @@ class CreateCustomerTypesTable extends Migration
     {
         Schema::create('customer_types', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('type_en', 11)->comment('ÓÃ»§ÀàÐÍ-Ó¢');
-            $table->string('type_ch', 11)->comment('ÓÃ»§ÀàÐÍ-ÖÐ');
+            $table->string('type_en', 11)->comment('ç”¨æˆ·ç±»åž‹-è‹±');
+            $table->string('type_ch', 11)->comment('ç”¨æˆ·ç±»åž‹-ä¸­');
             $table->timestamps();
         });
     }

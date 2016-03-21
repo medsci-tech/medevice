@@ -14,13 +14,13 @@ class CreateMessageVerifiesTable extends Migration
     {
         //
         Schema::create('message_verifies', function (Blueprint $table) {
-            $table->increments('id')->comment('Ö÷¼ü.');
+            $table->increments('id')->comment('ä¸»é”®.');
 
-            //¸öÈËÐÅÏ¢
-            $table->string('phone', 31)->comment('ÊÖ»úºÅÂë.');
-            $table->string('code', 31)->comment('ÑéÖ¤Âë.');
-            $table->tinyInteger('status')->default(0)->comment('ÑéÖ¤Âë×´Ì¬£¬1±íÊ¾ÒÑ¾­±»Ê¹ÓÃ¹ý.');
-            $table->timestamp('expired')->nullable()->comment('ÑéÖ¤Âë¹ýÆÚÊ±¼ä.');
+            //ä¸ªäººä¿¡æ¯
+            $table->string('phone', 31)->comment('æ‰‹æœºå·ç .');
+            $table->string('code', 31)->comment('éªŒè¯ç .');
+            $table->tinyInteger('status')->default(0)->comment('éªŒè¯ç çŠ¶æ€ï¼Œ1è¡¨ç¤ºå·²ç»è¢«ä½¿ç”¨è¿‡.');
+            $table->timestamp('expired')->nullable()->comment('éªŒè¯ç è¿‡æœŸæ—¶é—´.');
 
             $table->timestamps();
         });

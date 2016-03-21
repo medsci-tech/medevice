@@ -14,8 +14,8 @@ class CreateSupplierTypesTable extends Migration
     {
         Schema::create('supplier_types', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('type_en', 11)->comment('¹©Ó¦ÉÌÀàÐÍ-Ó¢');
-            $table->string('type_ch', 11)->comment('¹©Ó¦ÉÌÀàÐÍ-ÖÐ');
+            $table->string('type_en', 11)->comment('ä¾›åº”å•†ç±»åž‹-è‹±');
+            $table->string('type_ch', 11)->comment('ä¾›åº”å•†ç±»åž‹-ä¸­');
             $table->timestamps();
         });
     }

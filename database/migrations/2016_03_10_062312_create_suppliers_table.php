@@ -15,20 +15,20 @@ class CreateSuppliersTable extends Migration
         //
         Schema::create('suppliers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('type_id')->unsigned()->comment('¹©Ó¦ÉÌÀàÐÍID');
+            $table->integer('type_id')->unsigned()->comment('ä¾›åº”å•†ç±»åž‹ID');
             $table->foreign('type_id')->references('id')->on('product_type');
 
-            $table->string('openid')->comment('Î¢ÐÅopenid');
+            $table->string('openid')->comment('å¾®ä¿¡openid');
             $table->unique('openid');
-            $table->string('phone', 31)->nullable()->comment('ÁªÏµ·½Ê½');
+            $table->string('phone', 31)->nullable()->comment('è”ç³»æ–¹å¼');
             $table->unique('phone');
-            $table->string('email', 31)->nullable()->comment('ÓÊÏä');
+            $table->string('email', 31)->nullable()->comment('é‚®ç®±');
             $table->unique('email');
 
-            $table->boolean('is_approved')->default(0)->comment('ÊÇ·ñÍ¨¹ýÉóºË.');
-            $table->string('suppliers_name')->nullable()->comment('¹©Ó¦ÉÌÃû³Æ');
-            $table->string('suppliers_desc')->nullable()->comment('¹©Ó¦ÉÌÃèÊö');
-            $table->string('logo_image_url')->nullable()->comment('LogoÍ¼Æ¬µØÖ·');
+            $table->boolean('is_approved')->default(0)->comment('æ˜¯å¦é€šè¿‡å®¡æ ¸.');
+            $table->string('suppliers_name')->nullable()->comment('ä¾›åº”å•†åç§°');
+            $table->string('suppliers_desc')->nullable()->comment('ä¾›åº”å•†æè¿°');
+            $table->string('logo_image_url')->nullable()->comment('Logoå›¾ç‰‡åœ°å€');
 
             $table->timestamps();
         });

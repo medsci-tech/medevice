@@ -22,14 +22,15 @@
             @if($cat->id == $categories[0]->id)
                 <ul class="ui-list ui-border-tb dis" id="tbc_{{$cat->id}}">
                     @foreach($products as $product)
-
                         <li class="ui-border-t">
                             <div class="ui-list-thumb">
                                 <span style="background-image:url(http://placeholder.qiniudn.com/100x100)"></span>
                             </div>
                             <div class="ui-list-info">
-                                <h4 class="ui-nowrap">{{$product->name}}</h4>
-                                <p class="ui-nowrap">{{$product->introduction}}</p>
+                                <a href="/shop/product-detail?id={{$product->id}}" class="ui-txt-default">
+                                    <h4 class="ui-nowrap">{{$product->name}}</h4>
+                                    <p class="ui-nowrap">{{$product->introduction}}</p>
+                                </a>
                             </div>
 
                         </li>
@@ -60,7 +61,7 @@
             success: function (json) {
                 strHtml = '';
                 $(json.products).each(function () {
-                    strHtml += '<li class="ui-border-t"><div class="ui-list-thumb"><span style="background-image:url(http://placeholder.qiniudn.com/100x100)"></span></div><div class="ui-list-info"><h4 class="ui-nowrap">'+this.name+'</h4><p class="ui-nowrap">'+this.introduction+'</p></div></li>';
+                    strHtml += '<li class="ui-border-t"><div class="ui-list-thumb"><span style="background-image:url(http://placeholder.qiniudn.com/100x100)"></span></div><div class="ui-list-info"><a href="" class="ui-txt-default"><h4 class="ui-nowrap">'+this.name+'</h4><p class="ui-nowrap">'+this.introduction+'</p></a></div></li>';
                 });
                 $("#tbc_" + id).html(strHtml);
             },

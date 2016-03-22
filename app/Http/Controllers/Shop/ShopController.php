@@ -25,4 +25,12 @@ class ShopController extends Controller
         return response()->json(['products' => Product::where('category_id', $request->input('cat_id'))->get()]);
     }
 
+    public function productDetail(Request $request) {
+        $product = Product::find($request->input('id'));
+        return view('shop.product-detail', ['product' => $product]);
+    }
+
+    public function createOrder(Request $request) {
+
+    }
 } /*class*/

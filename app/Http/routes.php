@@ -41,5 +41,6 @@ Route::get('/', function () {
     Route::group(['prefix' => 'shop', 'namespace' => 'Shop'], function () {
         Route::get('/', 'ShopController@index');
         Route::any('/get-products-by-cat-id', 'ShopController@getProductByCatID');
+        Route::get('/product-detail', 'ShopController@productDetail');
     });
 //});

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Shop;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
@@ -31,6 +32,7 @@ class ShopController extends Controller
     }
 
     public function createOrder(Request $request) {
-
+        Order::create($request->input());
+        return response()->json(['success' => true]);
     }
 } /*class*/

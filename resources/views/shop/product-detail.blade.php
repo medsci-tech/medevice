@@ -26,12 +26,14 @@
     <ul class="ui-list ui-list-text ui-border-tb ui-txt-sub">
         <li class="ui-border-t">
             <p class="ui-nowrap">供应商</p>
+
             <div class="ui-txt-info">{{$product->supplier->suppliers_name}}</div>
         </li>
     </ul>
     <ul class="ui-list ui-list-text ui-list-link ui-border-b ui-txt-sub">
         <li class="ui-border-t">
             <p>使用教程</p>
+
             <div class="ui-txt-info">点击查看</div>
         </li>
     </ul>
@@ -40,6 +42,7 @@
 <div class="ui-top ui-border-tb spxq">
     <div class="ui-flex ui-flex-pack-center ui-txt-highlight">商品详情</div>
     <span>文字部分</span>
+
     <div><img src="http://placeholder.qiniudn.com/640x200" width="100%"></div>
 </div>
 
@@ -58,38 +61,25 @@
             <h3>完成申请</h3>
             <i class="ui-dialog-close" data-role="button" onclick="closedia()"></i>
         </header>
-        <form action="#" style="padding: 5px">
+        <form action="/shop/create-order" style="padding: 5px" method="post">
+            <input type="hidden" name="product_id" value="{{$product->id}}">
+
             <div class="ui-form-item ui-form-item-pure ui-border-radius ui-form dialog-top">
-                <input type="text" placeholder="请输入姓名">
+                <input type="text" placeholder="请输入姓名" name="name">
             </div>
             <div class="ui-form-item ui-form-item-pure ui-border-radius ui-form dialog-top">
-                <input type="text" placeholder="请输入联系电话">
+                <input type="text" placeholder="请输入联系电话" name="phone">
             </div>
-            <div class="ui-form-item ui-form-item-pure dialog-top">
-                <div class="ui-col ui-col-33">
-                    <button class="ui-btn-lg" id="min">
-                        -
-                    </button>
-                </div>
-                <div class="ui-col ui-col-33">
-                    <input type="text" value="1" style="text-align: center;" id="num">
-                </div>
-                <div class="ui-col ui-col-33">
-                    <button class="ui-btn-lg" id="add">
-                        +
-                    </button>
-                </div>
-            </div>
-            <h5 style="text-align: center">商品数量当前为：<span id="num2">1</span></h5>
             <div class="ui-form-item ui-form-item-textarea ui-border-radius dialog-top ui-form">
 
                 <textarea placeholder="备注" style="padding-left: 0px"></textarea>
             </div>
+
+            <div class="ui-dialog-ft">
+                <button type="button" data-role="button" onclick="closedia()">取消</button>
+                <button type="submit" data-role="button">申请</button>
+            </div>
         </form>
-        <div class="ui-dialog-ft">
-            <button type="button" data-role="button" onclick="closedia()">取消</button>
-            <button type="button" data-role="button">申请</button>
-        </div>
     </div>
 </div>
 <div class="ui-dialog" id="dialog_collect">
@@ -106,10 +96,11 @@
         </div>
     </div>
 </div>
-<!-- js -->
-<script>
-    (function(){
 
+<script src="{{asset('/js/zepto.min.js')}}"></script>
+<script src="{{asset('/js/frozen.js')}}"></script>
+<script>
+    (function () {
         var slider = new fz.Scroll('.ui-slider', {
             role: 'slider',
             indicator: true,
@@ -117,43 +108,28 @@
             interval: 3000
         });
 
-        slider.on('beforeScrollStart', function(from, to) {
+        slider.on('beforeScrollStart', function (from, to) {
             console.log(from, to);
         });
 
-        slider.on('scrollEnd', function(cruPage) {
+        slider.on('scrollEnd', function (cruPage) {
             console.log(curPage);
         });
 
     })();
-    //对话框
-    function showdia(){
-        document.getElementById("dialog").style.display="-webkit-box";
-    }
-    function closedia(){
-        document.getElementById("dialog").style.display="none";
-    }
-    function showdia_c(){
-        document.getElementById("dialog_collect").style.display="-webkit-box";
-    }
-    function closedia_c(){
-        document.getElementById("dialog_collect").style.display="none";
-    }
-    $(function(){
-        var n =$("#num");
-        $("#add").click(function(){
-            n.val(parseInt(n.val())+1)
-            $("#num2").text(n.val())
-            setTotal();
-        })
-        $("#min").click(function(){
-            n.val(parseInt(n.val())-1)
-            $("#num2").text(n.val())
-            setTotal();
-        })
 
-    })
-
+    function showdia() {
+        document.getElementById("dialog").style.display = "-webkit-box";
+    }
+    function closedia() {
+        document.getElementById("dialog").style.display = "none";
+    }
+    function showdia_c() {
+        document.getElementById("dialog_collect").style.display = "-webkit-box";
+    }
+    function closedia_c() {
+        document.getElementById("dialog_collect").style.display = "none";
+    }
 </script>
 </body>
 </html>

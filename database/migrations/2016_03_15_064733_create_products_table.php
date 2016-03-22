@@ -12,6 +12,20 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
+        Schema::create('products', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('category_id')->unsigned()->comment('所属类别ID');
+            $table->foreign('category_id')->references('id')->on('product_categories');
+
+            $table->integer('supplier_id')->unsigned()->comment('所属供应商ID');
+            $table->foreign('supplier_id')->references('id')->on('suppliers');
+
+            $table->string('name');
+            $table->string('remark');
+            $table->text('introduction');
+            $table->decimal('price');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -22,5 +36,6 @@ class CreateProductsTable extends Migration
     public function down()
     {
         //
+        Schema::drop('products');
     }
 }

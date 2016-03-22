@@ -15,6 +15,11 @@
 #nav li a:hover {
     color: #333;
 }
+#nav li:first-child
+{
+    background: #00a5e0;
+    color: white
+}
 
 .aa {
     border-right: 1px solid #f8f8f8;
@@ -25,7 +30,7 @@
 
 .bb {
     background: #00a5e0;
-    color: white
+    color: white;
 }
 
 .lfloat {

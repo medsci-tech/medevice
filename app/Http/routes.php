@@ -37,4 +37,9 @@ Route::get('/', function () {
         Route::post('/store', 'RegisterController@store');
         Route::any('/send-message', 'RegisterController@sendMessage');
     });
+
+    Route::group(['prefix' => 'shop', 'namespace' => 'Shop'], function () {
+        Route::get('/', 'ShopController@index');
+        Route::any('/get-products-by-cat-id', 'ShopController@getProductByCatID');
+    });
 //});

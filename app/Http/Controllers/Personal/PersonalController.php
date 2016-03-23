@@ -10,15 +10,17 @@ class PersonalController extends Controller
 {
     public function __construct()
     {
-//        $this->middleware('guest', ['except' => 'logout']);
     }
 
-    public function information(Request $request) {
-
-    }
-
-    public function community(Request $request) {
+    public function index() {
 
     }
 
+    public function attentionList() {
+
+    }
+
+    public function orderList() {
+
+    }
 } /*class*/

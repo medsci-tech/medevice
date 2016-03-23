@@ -44,4 +44,16 @@ Route::get('/', function () {
         Route::get('/product-detail', 'ShopController@productDetail');
         Route::post('/create-order', 'ShopController@createOrder');
     });
+
+    Route::group(['prefix' => 'supplier', 'namespace' => 'Supplier'], function () {
+        Route::get('/', 'SupplierController@index');
+        Route::get('/detail', 'SupplierController@detail');
+        Route::any('/follow', 'SupplierController@follow');
+    });
+
+    Route::group(['prefix' => 'personal', 'namespace' => 'Personal'], function () {
+        Route::get('/', 'SupplierController@index');
+        Route::get('/attention-list', 'PersonalController@attentionList');
+        Route::get('/order-list', 'PersonalController@orderList');
+    });
 //});

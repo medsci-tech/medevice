@@ -16,7 +16,7 @@ class CreateSuppliersTable extends Migration
         Schema::create('suppliers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('type_id')->unsigned()->comment('供应商类型ID');
-            $table->foreign('type_id')->references('id')->on('product_type');
+            $table->foreign('type_id')->references('id')->on('supplier_type');
 
             $table->string('openid')->comment('微信openid');
             $table->unique('openid');
@@ -27,9 +27,9 @@ class CreateSuppliersTable extends Migration
 
             $table->boolean('is_approved')->default(0)->comment('是否通过审核.');
             $table->string('suppliers_name')->nullable()->comment('供应商名称');
-            $table->string('suppliers_desc')->nullable()->comment('供应商描述');
+            $table->text('suppliers_desc')->nullable()->comment('供应商描述');
             $table->string('logo_image_url')->nullable()->comment('Logo图片地址');
-
+            $table->integer('fans')->unsigned()->comment('关注数');
             $table->timestamps();
         });
     }

@@ -16,7 +16,7 @@ class CreateSuppliersTable extends Migration
         Schema::create('suppliers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('type_id')->unsigned()->comment('供应商类型ID');
-            $table->foreign('type_id')->references('id')->on('supplier_type');
+            $table->foreign('type_id')->references('id')->on('supplier_types');
 
             $table->string('openid')->comment('微信openid');
             $table->unique('openid');

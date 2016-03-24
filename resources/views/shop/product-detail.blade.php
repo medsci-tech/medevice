@@ -166,7 +166,7 @@
 
     function follow(product_id) {
         $.ajax({
-            url: '/supplier/follow',
+            url: '/shop/collect',
             data: {
                 product_id: product_id
             },

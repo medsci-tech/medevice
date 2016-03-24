@@ -35,4 +35,8 @@ class ShopController extends Controller
         Order::create($request->input());
         return response()->json(['success' => true]);
     }
+
+    public function collect(Request $request) {
+        return response()->json(['success' => true]);
+    }
 } /*class*/

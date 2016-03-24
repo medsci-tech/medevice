@@ -42,7 +42,7 @@ Route::get('/', function () {
         Route::get('/', 'ShopController@index');
         Route::any('/get-products-by-cat-id', 'ShopController@getProductByCatID');
         Route::get('/product-detail', 'ShopController@productDetail');
-        Route::post('/create-order', 'ShopController@createOrder');
+        Route::any('/create-order', 'ShopController@createOrder');
     });
 
     Route::group(['prefix' => 'supplier', 'namespace' => 'Supplier'], function () {

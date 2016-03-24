@@ -47,56 +47,54 @@
 </div>
 
 <div class="ui-footer ui-footer-stable ui-btn-group ui-border-t" style="height: 50px">
-    <button class="ui-btn ui-btn-primary" onclick="showdia()">
+    <button class="ui-btn ui-btn-primary" onclick="showOrderDia()">
         申请
     </button>
-    <button class="ui-btn ui-btn-danger" onclick="showdia_c()">
+    <button class="ui-btn ui-btn-danger" onclick="follow({{$product->id}})">
         收藏
     </button>
+</div>
+
+<div class="ui-dialog" id="create">
+    <div class="ui-dialog-cnt">
+        <header class="ui-dialog-hd ui-border-b">
+            <h3>完成申请</h3>
+            <i class="ui-dialog-close" data-role="button" onclick="closeOrderDia()"></i>
+        </header>
+        <form action="#" style="padding: 5px">
+            <div class="ui-form-item ui-form-item-pure ui-border-radius ui-form dialog-top">
+                <input type="text" placeholder="请输入姓名" name="name" id="name">
+            </div>
+            <div class="ui-form-item ui-form-item-pure ui-border-radius ui-form dialog-top">
+                <input type="text" placeholder="请输入联系电话" name="phone" id="phone">
+            </div>
+            <div class="ui-form-item ui-form-item-textarea ui-border-radius dialog-top ui-form">
+                <textarea placeholder="备注" style="padding-left: 0px" name="remark" id="remark"></textarea>
+            </div>
+
+            <div class="ui-dialog-ft">
+                <button type="button" data-role="button" onclick="store({{$product->id}})">申请</button>
+                <button type="button" data-role="button" onclick="closeOrderDia()">取消</button>
+            </div>
+        </form>
+    </div>
 </div>
 
 <div class="ui-dialog" id="dialog">
     <div class="ui-dialog-cnt">
         <header class="ui-dialog-hd ui-border-b">
-            <h3>完成申请</h3>
-            <i class="ui-dialog-close" data-role="button" onclick="closedia()"></i>
-        </header>
-        <form action="/shop/create-order" style="padding: 5px" method="post">
-            <input type="hidden" name="product_id" value="{{$product->id}}">
-
-            <div class="ui-form-item ui-form-item-pure ui-border-radius ui-form dialog-top">
-                <input type="text" placeholder="请输入姓名" name="name">
-            </div>
-            <div class="ui-form-item ui-form-item-pure ui-border-radius ui-form dialog-top">
-                <input type="text" placeholder="请输入联系电话" name="phone">
-            </div>
-            <div class="ui-form-item ui-form-item-textarea ui-border-radius dialog-top ui-form">
-
-                <textarea placeholder="备注" style="padding-left: 0px"></textarea>
-            </div>
-
-            <div class="ui-dialog-ft">
-                <button type="button" data-role="button" onclick="closedia()">取消</button>
-                <button type="submit" data-role="button">申请</button>
-            </div>
-        </form>
-    </div>
-</div>
-<div class="ui-dialog" id="dialog_collect">
-    <div class="ui-dialog-cnt">
-        <header class="ui-dialog-hd ui-border-b">
-            <h3>收藏宝贝</h3>
-            <i class="ui-dialog-close" data-role="button" onclick="closedia_c()"></i>
+            <h3 id="dia_title"></h3>
+            <i class="ui-dialog-close" data-role="button" onclick="closeDia()"></i>
         </header>
         <div class="ui-dialog-bd">
-            <h4><i class="ui-icon-success ui-txt-warning"></i>恭喜你，收藏成功！</h4>
+            <i class="ui-icon-success success_dia" id="icon"></i><h4 id="dia_content"></h4>
         </div>
         <div class="ui-dialog-ft">
-            <button type="button" data-role="button" onclick="closedia_c()">确定</button>
+            <button type="button" data-role="button" onclick="closeDia()">确定</button>
         </div>
     </div>
 </div>
-
+<script src="http://cdn.bootcss.com/bootswatch/2.0.2/js/jquery.js"></script>
 <script src="{{asset('/js/zepto.min.js')}}"></script>
 <script src="{{asset('/js/frozen.js')}}"></script>
 <script>
@@ -113,22 +111,79 @@
         });
 
         slider.on('scrollEnd', function (cruPage) {
-            console.log(curPage);
+            //console.log(curPage);
         });
 
     })();
 
-    function showdia() {
+    function showDia(success, title, content) {
+        $("#dia_title").replaceWith(title);
+        $("#dia_content").replaceWith(content);
+        if(success) {
+            $("#icon").removeClass().addClass("ui-icon-success success_dia");
+        } else {
+            $("#icon").removeClass().addClass("ui-icon-success ui-txt-warning");
+        }
         document.getElementById("dialog").style.display = "-webkit-box";
     }
-    function closedia() {
+    function closeDia() {
         document.getElementById("dialog").style.display = "none";
     }
-    function showdia_c() {
-        document.getElementById("dialog_collect").style.display = "-webkit-box";
+
+    function showOrderDia() {
+        document.getElementById("create").style.display = "-webkit-box";
     }
-    function closedia_c() {
-        document.getElementById("dialog_collect").style.display = "none";
+    function closeOrderDia() {
+        document.getElementById("create").style.display = "none";
+    }
+    function store(product_id) {
+        name =  document.getElementById("name").value;
+        phone =  document.getElementById("phone").value;
+        remark =  document.getElementById("remark").value;
+        $.ajax({
+            url: '/shop/create-order',
+            data: {
+                product_id: product_id,
+                name: name,
+                phone: phone,
+                remark: remark,
+            },
+            type: "get",
+            dataType: "json",
+            success: function (json) {
+                if(json.success) {
+                    closeOrderDia();
+                    showDia(true, '申请成功', '恭喜你，申请订单成功！');
+                } else {
+                    showDia(true, '申请失败', '申请失败,请重试！');
+                }
+            },
+            error: function (xhr, status, errorThrown) {
+                console.log("Sorry, there was a problem!");
+            }
+        });
+    }
+
+    function follow(product_id) {
+        $.ajax({
+            url: '/supplier/follow',
+            data: {
+                product_id: product_id
+            },
+            type: "get",
+            dataType: "json",
+            success: function (json) {
+                if(json.success) {
+                    showDia(true, '收藏成功', '恭喜你，收藏订单成功！');
+                } else {
+                    showDia(true, '收藏失败', '收藏失败,请重试！');
+                }
+            },
+            error: function (xhr, status, errorThrown) {
+                console.log("Sorry, there was a problem!");
+                showDia(true, '收藏失败', '收藏失败,请重试！');
+            }
+        });
     }
 </script>
 </body>

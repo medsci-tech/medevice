@@ -50,7 +50,7 @@
     <button class="ui-btn ui-btn-primary" onclick="showOrderDia()">
         申请
     </button>
-    <button class="ui-btn ui-btn-danger" onclick="follow({{$product->id}})">
+    <button class="ui-btn ui-btn-danger" onclick="collect({{$product->id}})">
         收藏
     </button>
 </div>
@@ -117,8 +117,8 @@
     })();
 
     function showDia(success, title, content) {
-        $("#dia_title").replaceWith(title);
-        $("#dia_content").replaceWith(content);
+        $("#dia_title").text(title);
+        $("#dia_content").text(content);
         if(success) {
             $("#icon").removeClass().addClass("ui-icon-success success_dia");
         } else {
@@ -159,12 +159,13 @@
                 }
             },
             error: function (xhr, status, errorThrown) {
+                showDia(true, '申请失败', '申请失败,请重试！');
                 console.log("Sorry, there was a problem!");
             }
         });
     }
 
-    function follow(product_id) {
+    function collect(product_id) {
         $.ajax({
             url: '/shop/collect',
             data: {

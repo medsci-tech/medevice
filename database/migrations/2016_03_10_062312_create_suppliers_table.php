@@ -26,8 +26,8 @@ class CreateSuppliersTable extends Migration
             $table->unique('email');
 
             $table->boolean('is_approved')->default(0)->comment('是否通过审核.');
-            $table->string('suppliers_name')->nullable()->comment('供应商名称');
-            $table->text('suppliers_desc')->nullable()->comment('供应商描述');
+            $table->string('supplier_name')->nullable()->comment('供应商名称');
+            $table->text('supplier_desc')->nullable()->comment('供应商描述');
             $table->string('logo_image_url')->nullable()->comment('Logo图片地址');
             $table->integer('fans')->unsigned()->comment('关注数');
             $table->timestamps();

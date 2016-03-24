@@ -1,9 +1,7 @@
 <?php
 
-namespace App\Http\Personal\Controllers;
+namespace App\Http\Controllers\Personal;
 
-use App\BasicShop\Helper\Facades\Helper;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class PersonalController extends Controller

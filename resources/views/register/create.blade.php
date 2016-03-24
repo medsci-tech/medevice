@@ -11,19 +11,23 @@
 <body>
 <div class="ui-container signup-top signup-padding">
     <div class="ui-border-radius signup-padding signup-shadow">
-        <form action="{{url('/register/store')}}" method="POST" id="signup-form">
+        <form action="{{url('/register/store')}}" method="POST" id="signup-form" id="signup-form">
             <div class="ui-form-item ui-form-item-pure ui-border-radius ui-form">
-                <input type="text" placeholder="请输入手机号码" id="phone" name="phone">
+                <input type="text" placeholder="请输入手机号码" id="phone" name="phone"
+                       value="{{ isset($input) ? $input['phone'] : '' }}">
                 <a href="#" class="ui-icon-close" onclick="clean_phone()"></a>
             </div>
-            <h6 class="ui-txt-warning" id="label_phone"></h6>
+            <h6 class="ui-txt-warning" id="label_phone">{{ isset($errors) ?  $errors->first('phone') : '' }}</h6>
+
             <div class="ui-form-item ui-form-item-r ui-border-radius ui-top ui-form">
-                <input type="text" placeholder="请输入验证码" id="code" name="code">
+                <input type="text" placeholder="请输入验证码" id="code" name="code"
+                       value="{{ isset($input) ? $input['code'] : '' }}">
                 <!-- 若按钮不可点击则添加 disabled 类 -->
                 <button type="button" class="ui-border-l" onclick="sendMessage()" id="code_bt">获取验证码</button>
                 <a href="#" class="ui-icon-close" onclick="clean_code()"></a>
             </div>
-            <h6 class="ui-txt-warning" id="label_code"></h6>
+            <h6 class="ui-txt-warning" id="label_code">{{ isset($errors) ?  $errors->first('code') : '' }}</h6>
+
             <p class="ui-flex ui-flex-pack-center ui-top">
                 <label class="ui-checkbox-s">
                     <input type="checkbox" name="checkbox" checked>
@@ -33,7 +37,7 @@
             <h5 style="text-align: center"></h5>
 
             <div class="ui-btn-wrap">
-                <button class="ui-btn-lg ui-btn-primary">
+                <button class="ui-btn-lg ui-btn-primary" type="submit">
                     注册
                 </button>
             </div>
@@ -41,8 +45,7 @@
     </div>
 </div>
 <script src="http://cdn.bootcss.com/bootswatch/2.0.2/js/jquery.js"></script>
-<script src="{{asset('/js/frozen.js')}}"></script>
-<script src="{{asset('/js/zepto.min.js')}}"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
 <script type="text/javascript" language="javascript">
     function clean_phone() {
         document.getElementById("phone").value = "";
@@ -50,6 +53,36 @@
     function clean_code() {
         document.getElementById("code").value = "";
     }
+
+    $().ready(function () {
+        $("#signup-form").validate({
+            rules: {
+                phone: "required",
+                code: {
+                    required: true,
+                    rangelength: [6, 6]
+                }
+            },
+            messages: {
+                phone: '手机号不能为空',
+                code: {
+                    required: "验证码不能为空",
+                    rangelength: "验证码格式不正确"
+                }
+            },
+            errorPlacement:function(error,element) {
+                if (element.attr("name") == "phone") {
+                    $("#label_phone").empty();
+                    $("#label_phone").append(error.html())
+                }
+
+                if(element.attr("name") == "code") {
+                    $("#label_code").empty();
+                    $("#label_code").append(error.html());
+                }
+            }
+        });
+    });
 
     function validateMobile() {
         var mobile = document.getElementById('phone').value;
@@ -69,34 +102,6 @@
             document.getElementById('phone').focus();
             return false;
         }
-
-        return true;
-
-    }
-
-    function validateAll() {
-        if (!validateMobile()) {
-            return false;
-        }
-
-        if (code.length == 0) {
-            document.getElementById('label_code').innerText = '请输入验证码！';
-            document.getElementById('code').focus();
-            return false;
-        }
-
-        if (code.length != 6) {
-            document.getElementById('label_code').innerText = '请输入有效的验证码！';
-            document.getElementById('code').focus();
-            return false;
-        }
-
-        if (isNaN(code)) {
-            document.getElementById('label_code').innerText = '请输入有效的验证码！';
-            document.getElementById('code').focus();
-            return false;
-        }
-
         return true;
     }
 

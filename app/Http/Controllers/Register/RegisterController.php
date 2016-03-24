@@ -21,14 +21,23 @@ class RegisterController extends Controller
         return view('register.create');
     }
 
+
     public function store(Request $request) {
+        $messages = array(
+            'phone.required'  => '手机号不能为空',
+            'phone.digits'    => '手机格式不正确',
+            'phone.phone'     => '手机格式不正确',
+            'phone.unique'    => '手机号已注册',
+            'code.required'   => '验证码不能为空',
+            'code.digits'     => '验证码格式不正确',
+        );
         $validator = \Validator::make($request->all(), [
             'phone' => 'required|digits:11|unique:customers,phone',
             'code'  => 'required|digits:6'
-        ]);
+        ], $messages);
         if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator->errors())->withInput();
-        } /*if>*/
+            return view('register.create', ['errors' => $validator->errors(), 'input' => $request->all()]);
+        }
         $result = \MessageSender::checkVerify($request->input('phone'), $request->input('code'));
         if($result) {
             $user = \Wechat::authorizeUser($request->url());
@@ -39,7 +48,8 @@ class RegisterController extends Controller
             $comstomer->save();
             return view('register/success');
         } else {
-            return response('验证码错误');
+            $validator->errors()->add('code', '验证码错误');
+            return view('register.create', ['errors' => $validator->errors(), 'input' => $request->all()]);
         }
     }
 

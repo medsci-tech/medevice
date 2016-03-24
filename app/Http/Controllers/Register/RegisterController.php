@@ -15,6 +15,7 @@ class RegisterController extends Controller
 {
     function __construct()
     {
+        $this->middleware('wechat');
     }
 
     public function create()

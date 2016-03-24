@@ -37,17 +37,17 @@ class Wechat
     {
         return [
             (new MenuItem("药械平台"))->buttons([
-                new MenuItem('入驻厂家', 'view', url('/platform/suppliers')),
-                new MenuItem('产品专区', 'view', url('/shop/products')),
+                new MenuItem('入驻厂家', 'view', url('/supplier')),
+                new MenuItem('产品专区', 'view', url('/shop')),
+                new MenuItem('最新资讯', 'view', url('/news')),
             ]),
-            (new MenuItem("药械知识"))->buttons([
-                new MenuItem('最新资讯', 'view', url('/message/news')),
-                //new MenuItem('直播讲堂', 'view', url('/message/video')),
+            (new MenuItem("直播讲堂"))->buttons([
+                new MenuItem('直播讲堂', 'view', url('/register/create')),
             ]),
-            (new MenuItem("药械社区"))->buttons([
-                new MenuItem('个人中心', 'view', url('/personal/information')),
-                //new MenuItem('药械圈子', 'view', url('/personal/community')),
-                new MenuItem('调试', 'view', url('/register/create')),
+            (new MenuItem("个人中心"))->buttons([
+                new MenuItem('个人信息', 'view', url('/personal')),
+                new MenuItem('我的订单', 'view', url('/personal/order-list')),
+                new MenuItem('我的收藏', 'view', url('/personal/attention-list')),
             ]),
         ];
 

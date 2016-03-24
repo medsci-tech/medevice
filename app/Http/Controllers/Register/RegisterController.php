@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Constants\AppConstant;
+use Overtrue\Wechat\Js;
 
 
 class RegisterController extends Controller
@@ -46,7 +47,11 @@ class RegisterController extends Controller
             $comstomer->openid = $user->openid;
             $comstomer->type_id = CustomerType::where('type_en', AppConstant::CUSTOMER_COMMON)->first()->id;
             $comstomer->save();
-            return view('register/success');
+
+            $appId  = env('WX_APPID');
+            $secret = env('WX_SECRET');
+            $js = new Js($appId, $secret);
+            return view('register.success', ['js' => $js]);
         } else {
             $validator->errors()->add('code', '验证码错误');
             return view('register.create', ['errors' => $validator->errors(), 'input' => $request->all()]);

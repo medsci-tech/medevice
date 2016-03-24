@@ -35,4 +35,8 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/attention-list', 'PersonalController@attentionList');
         Route::get('/order-list', 'PersonalController@orderList');
     });
+
+    Route::group(['prefix' => 'article', 'namespace' => 'Article'], function () {
+        Route::get('/', 'ArticleController@index');
+    });
 });

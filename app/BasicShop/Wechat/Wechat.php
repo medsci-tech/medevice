@@ -39,7 +39,7 @@ class Wechat
             (new MenuItem("药械平台"))->buttons([
                 new MenuItem('入驻厂家', 'view', url('/supplier')),
                 new MenuItem('产品专区', 'view', url('/shop')),
-                new MenuItem('最新资讯', 'view', url('/news')),
+                new MenuItem('最新资讯', 'view', url('/article')),
             ]),
             (new MenuItem("直播讲堂"))->buttons([
                 new MenuItem('直播讲堂', 'view', url('/register/create')),

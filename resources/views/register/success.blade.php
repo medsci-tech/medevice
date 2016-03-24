@@ -5,8 +5,8 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
     <title>注册成功</title>
-    <link rel="stylesheet" href="{{asset('/css/main.css')}}">
     <link rel="stylesheet" href="{{asset('/css/frozen.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/main.css')}}">
 </head>
 <body>
 <div>

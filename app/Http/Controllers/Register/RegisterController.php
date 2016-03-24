@@ -42,10 +42,12 @@ class RegisterController extends Controller
         }
         $result = \MessageSender::checkVerify($request->input('phone'), $request->input('code'));
         if($result) {
-            $user       = \Helper::getUser();
+            $user = \Helper::getUser();
             $comstomer = new Customer();
             $comstomer->phone = $request->input('phone');
             $comstomer->openid = $user['openid'];
+            $comstomer->nickname = $user['nickname'];
+            $comstomer->head_image_url = $user['headimgurl'];
             $comstomer->type_id = CustomerType::where('type_en', AppConstant::CUSTOMER_COMMON)->first()->id;
             $comstomer->save();
 

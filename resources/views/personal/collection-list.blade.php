@@ -4,29 +4,34 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
-    <title>我的关注</title>
+    <title>我的收藏</title>
     <link rel="stylesheet" href="{{asset('/css/frozen.css')}}">
     <link rel="stylesheet" href="{{asset('/css/main.css')}}">
 </head>
 <body>
 <div>
-    @foreach($attentions as $attention)
+    @foreach($collections as $collection)
         <ul class="ui-list  ui-border-tb" style="margin-top: 10px">
             <li class="ui-border-t">
                 <div class="ui-list-info">
-                    <h5>{{$attention->supplier->supplier_name}}</h5>
+                    <h5>{{$collection->product->name}}</h5>
                 </div>
-                <h5 class="order_cancel"><a>取消关注</a></h5>
             </li>
             <li class="ui-border-t">
                 <div class="ui-list-thumb">
                     <span style="background-image:url(http://placeholder.qiniudn.com/100x100)"></span>
                 </div>
                 <div class="ui-list-info">
-                    <h5 class="ui-nowrap">{{$attention->supplier->supplier_desc}}</h5>
+                    <h5 class="ui-nowrap">{{$collection->product->introduction}}</h5>
 
-                    <p class="ui-nowrap ui-txt-info">时间：{{$attention->created_at}}</p>
+                    <p class="ui-nowrap ui-txt-info">时间：{{$collection->created_at}}</p>
                 </div>
+            </li>
+            <li class="ui-border-t">
+                <div class="ui-list-info">
+                    <h5>价格：<span class="ui-txt-warning">￥{{$collection->product->price}}</span></h5>
+                </div>
+                <div class="order_pay"><h6 class="ui-list-action ui-btn ui-btn-danger">取消收藏</h6></div>
             </li>
         </ul>
     @endforeach

@@ -19,7 +19,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::group(['prefix' => 'shop', 'namespace' => 'Shop'], function () {
         Route::get('/', 'ShopController@index');
         Route::any('/get-products-by-cat-id', 'ShopController@getProductByCatID');
-        Route::get('/product-detail', 'ShopController@productDetail');
+        Route::get('/detail', 'ShopController@detail');
         Route::any('/create-order', 'ShopController@createOrder');
         Route::any('/collect', 'ShopController@collect');
     });
@@ -31,16 +31,14 @@ Route::group(['middleware' => ['web']], function () {
     });
 
     Route::group(['prefix' => 'personal', 'namespace' => 'Personal'], function () {
-        Route::get('/', 'SupplierController@index');
-        Route::get('/attention-list', 'PersonalController@attentionList');
+        Route::get('/', 'PersonalController@index');
         Route::get('/order-list', 'PersonalController@orderList');
+        Route::get('/collection-list', 'PersonalController@collectionList');
+        Route::get('/attention-list', 'PersonalController@attentionList');
     });
 
     Route::group(['prefix' => 'article', 'namespace' => 'Article'], function () {
         Route::get('/', 'ArticleController@index');
     });
 
-    Route::group(['prefix' => 'personal', 'namespace' => 'Personal'], function () {
-        Route::get('/', 'PersonalController@index');
-    });
 });

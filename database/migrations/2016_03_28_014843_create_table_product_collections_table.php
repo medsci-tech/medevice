@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableProductCollectTable extends Migration
+class CreateTableProductCollectionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateTableProductCollectTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_collect', function (Blueprint $table) {
+        Schema::create('product_collections', function (Blueprint $table) {
             $table->increments('id')->comment('主键.');
 
             $table->integer('customer_id')->unsigned()->comment('用户ID');

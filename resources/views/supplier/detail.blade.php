@@ -40,7 +40,7 @@
 </div>
 
 <div class="ui-footer ui-footer-stable ui-btn-group ui-border-t" style="height: 50px">
-    <button class="ui-btn ui-btn-primary" onclick="showdia()">
+    <button class="ui-btn ui-btn-primary" onclick="follow({{$supplier->id}})">
         关注
     </button>
 </div>
@@ -48,14 +48,14 @@
 <div class="ui-dialog" id="dialog">
     <div class="ui-dialog-cnt">
         <header class="ui-dialog-hd ui-border-b">
-            <h3>关注供应商</h3>
-            <i class="ui-dialog-close" data-role="button" onclick="closedia()"></i>
+            <h3 id="dia_title"></h3>
+            <i class="ui-dialog-close" data-role="button" onclick="closeDia()"></i>
         </header>
         <div class="ui-dialog-bd">
-            <h4><i class="ui-icon-success ui-txt-warning"></i>恭喜你,关注成功！</h4>
+            <i class="ui-icon-success success_dia" id="icon"></i><h4 id="dia_content"></h4>
         </div>
         <div class="ui-dialog-ft">
-            <button type="button" data-role="button" onclick="closedia()">确定</button>
+            <button type="button" data-role="button" onclick="closeDia()">确定</button>
         </div>
     </div>
 </div>
@@ -64,12 +64,40 @@
 <script src="{{asset('/js/frozen.js')}}"></script>
 <script src="{{asset('/js/zepto.min.js')}}"></script>
 <script>
-    //对话框
-    function showdia() {
+    function showDia(success, title, content) {
+        $("#dia_title").text(title);
+        $("#dia_content").text(content);
+        if (success) {
+            $("#icon").removeClass().addClass("ui-icon-success success_dia");
+        } else {
+            $("#icon").removeClass().addClass("ui-icon-success ui-txt-warning");
+        }
         document.getElementById("dialog").style.display = "-webkit-box";
     }
-    function closedia() {
+    function closeDia() {
         document.getElementById("dialog").style.display = "none";
+    }
+
+    function follow(supplier_id) {
+        $.ajax({
+            url: '/supplier/follow',
+            data: {
+                supplier_id: supplier_id
+            },
+            type: "get",
+            dataType: "json",
+            success: function (json) {
+                if (json.success) {
+                    showDia(true, '关注成功', '恭喜你，关注成功！');
+                } else {
+                    showDia(true, '关注失败', '关注失败,请重试！');
+                }
+            },
+            error: function (xhr, status, errorThrown) {
+                console.log("Sorry, there was a problem!");
+                showDia(true, '关注失败', '关注失败,请重试！');
+            }
+        });
     }
 </script>
 </body>

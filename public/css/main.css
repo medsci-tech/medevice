@@ -114,3 +114,13 @@
     font-size: 140px;
     color: #00a5e0;
 }
+
+.order_pay {
+    margin-right: 5px;
+    padding: 5px;
+}
+
+.order_cancel {
+    padding-top: 10px;
+    margin-right: 10px;
+}

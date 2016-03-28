@@ -23,19 +23,19 @@
 
     <ul class="ui-list ui-list-text ui-list-link ui-border-tb ui-top">
         <li class="ui-border-t">
-            <h4>申请记录</h4>
+            <h4><a href="/personal/order-list">我的订单</a></h4>
         </li>
     </ul>
 
     <ul class="ui-list ui-list-text ui-list-link ui-border-tb ui-top">
         <li class="ui-border-t">
-            <h4>我的收藏</h4>
+            <h4><a href="/personal/collection-list">收藏商品</a></h4>
         </li>
     </ul>
 
     <ul class="ui-list ui-list-text ui-list-link ui-border-tb ui-top">
         <li class="ui-border-t">
-            <h4>关注厂家</h4>
+            <h4><a href="/personal/attention-list">关注厂家</a></h4>
         </li>
     </ul>
 

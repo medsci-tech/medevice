@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableSupplierFollowTable extends Migration
+class CreateTableSupplierAttentionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTableSupplierFollowTable extends Migration
     public function up()
     {
         //
-        Schema::create('supplier_follow', function (Blueprint $table) {
+        Schema::create('supplier_attentions', function (Blueprint $table) {
             $table->increments('id')->comment('主键.');
 
             $table->integer('customer_id')->unsigned()->comment('用户ID');

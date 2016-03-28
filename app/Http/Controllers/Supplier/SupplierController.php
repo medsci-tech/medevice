@@ -4,15 +4,16 @@ namespace App\Http\Controllers\Supplier;
 
 use App\Http\Controllers\Controller;
 use App\Models\Supplier;
-
-
 use App\Http\Requests;
+use App\Models\SupplierAttention;
 use Illuminate\Http\Request;
 
 class SupplierController extends Controller
 {
     public function __construct()
     {
+        $this->middleware('wechat');
+        $this->middleware('access');
     }
 
     public function index() {
@@ -25,11 +26,19 @@ class SupplierController extends Controller
 
     public function follow(Request $request) {
         //TODO redis
-        //TODO DB::transaction
-        $supplier = Supplier::find($request->input('supplier_id'));
-        $supplier->fans += 1;
-        $supplier->save;
+        $supplierID = $request->input('supplier_id');
+        $customer = \Helper::getCustomer();
+        \DB::transaction(function () use ($supplierID, $customer) {
+            $supplier = Supplier::find($supplierID);
+            $supplier->fans += 1;
+            $supplier->save();
 
+            $attention = new SupplierAttention();
+            $attention->customer_id = $customer->id;
+            $attention->supplier_id = $supplierID;
+            $attention->save();
+        });
         return response()->json(['success'=> true]);
+
     }
 } /*class*/

@@ -27,7 +27,7 @@
                                 <span style="background-image:url(http://placeholder.qiniudn.com/100x100)"></span>
                             </div>
                             <div class="ui-list-info">
-                                <a href="/shop/product-detail?id={{$product->id}}" class="ui-txt-default">
+                                <a href="/shop/detail?id={{$product->id}}" class="ui-txt-default">
                                     <h4 class="ui-nowrap">{{$product->name}}</h4>
                                     <p class="ui-nowrap">{{$product->introduction}}</p>
                                 </a>

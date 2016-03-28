@@ -175,7 +175,7 @@
             dataType: "json",
             success: function (json) {
                 if(json.success) {
-                    showDia(true, '收藏成功', '恭喜你，收藏订单成功！');
+                    showDia(true, '收藏成功', '恭喜你，收藏成功！');
                 } else {
                     showDia(true, '收藏失败', '收藏失败,请重试！');
                 }

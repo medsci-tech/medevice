@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->string('remark');
             $table->text('introduction');
             $table->decimal('price');
+            $table->integer('fans')->unsigned()->comment('关注数');
             $table->timestamps();
         });
     }

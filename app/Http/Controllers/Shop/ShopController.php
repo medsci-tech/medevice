@@ -41,12 +41,34 @@ class ShopController extends Controller
     }
 
     public function collect(Request $request) {
+        $productID = $request->input('product_id');
         $customer = \Helper::getCustomer();
-        $collection = new ProductCollection();
-        $collection->product_id = $request->input('product_id');
-        $collection->customer_id = $customer->id;
-        $collection->save();
+        \DB::transaction(function () use ($productID, $customer) {
+            $product = Product::find($productID);
+            $product->fans += 1;
+            $product->save();
 
+            $customer = \Helper::getCustomer();
+            $collection = new ProductCollection();
+            $collection->product_id = $productID;
+            $collection->customer_id = $customer->id;
+            $collection->save();
+        });
+        return response()->json(['success' => true]);
+    }
+
+    public function cancelCollect(Request $request)
+    {
+        //TODO redis
+        $productID = $request->input('product_id');
+        $customer = \Helper::getCustomer();
+        \DB::transaction(function () use ($productID, $customer) {
+            $product = Product::find($productID);
+            $product->fans -= 1;
+            $product->save();
+
+            ProductCollection::where('product_id', $productID)->where('customer_id', $customer->id)->delete();
+        });
         return response()->json(['success' => true]);
     }
 } /*class*/

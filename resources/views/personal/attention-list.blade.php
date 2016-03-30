@@ -51,9 +51,6 @@
 </div>
 
 <script src="http://cdn.bootcss.com/bootswatch/2.0.2/js/jquery.js"></script>
-<script src="{{asset('/js/zepto.min.js')}}"></script>
-<script src="{{asset('/js/frozen.js')}}"></script>
-
 <script>
     function showDia(success, title, content) {
         $("#dia_title").text(title);

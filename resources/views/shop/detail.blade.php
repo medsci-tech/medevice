@@ -196,7 +196,7 @@
 
     function cancelCollect(product_id) {
         $.ajax({
-            url: '/supplier/cancel-collect',
+            url: '/shop/cancel-collect',
             data: {
                 product_id: product_id
             },

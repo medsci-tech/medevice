@@ -33,7 +33,8 @@
                 <div class="ui-list-info">
                     <h5>价格：<span class="ui-txt-warning">￥{{$collection->product->price}}</span></h5>
                 </div>
-                <div class="order_pay"><h6 class="ui-list-action ui-btn ui-btn-danger">取消收藏</h6></div>
+                <div class="order_pay"><h6 class="ui-list-action ui-btn ui-btn-danger"
+                                           onclick="cancelCollect({{$collection->product->id}})">取消收藏</h6></div>
             </li>
         </ul>
     @endforeach
@@ -72,7 +73,7 @@
 
     function cancelCollect(product_id) {
         $.ajax({
-            url: '/supplier/cancel-collect',
+            url: '/shop/cancel-collect',
             data: {
                 product_id: product_id
             },

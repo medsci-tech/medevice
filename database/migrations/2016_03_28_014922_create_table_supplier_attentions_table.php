@@ -23,6 +23,8 @@ class CreateTableSupplierAttentionsTable extends Migration
             $table->foreign('supplier_id')->references('id')->on('suppliers');
 
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 

@@ -40,9 +40,15 @@
 </div>
 
 <div class="ui-footer ui-footer-stable ui-btn-group ui-border-t" style="height: 50px">
-    <button class="ui-btn ui-btn-primary" onclick="follow({{$supplier->id}})">
-        关注
-    </button>
+    @if($attention)
+        <button class="ui-btn ui-btn-primary" onclick="unfollow({{$supplier->id}})">
+            取消关注
+        </button>
+    @else
+        <button class="ui-btn ui-btn-primary" onclick="follow({{$supplier->id}})">
+            关注
+        </button>
+    @endif()
 </div>
 
 <div class="ui-dialog" id="dialog">
@@ -61,8 +67,9 @@
 </div>
 
 <script src="http://cdn.bootcss.com/bootswatch/2.0.2/js/jquery.js"></script>
-<script src="{{asset('/js/frozen.js')}}"></script>
 <script src="{{asset('/js/zepto.min.js')}}"></script>
+<script src="{{asset('/js/frozen.js')}}"></script>
+
 <script>
     function showDia(success, title, content) {
         $("#dia_title").text(title);
@@ -75,6 +82,7 @@
         document.getElementById("dialog").style.display = "-webkit-box";
     }
     function closeDia() {
+        window.location.reload();
         document.getElementById("dialog").style.display = "none";
     }
 
@@ -91,6 +99,28 @@
                     showDia(true, '关注成功', '恭喜你，关注成功！');
                 } else {
                     showDia(true, '关注失败', '关注失败,请重试！');
+                }
+            },
+            error: function (xhr, status, errorThrown) {
+                console.log("Sorry, there was a problem!");
+                showDia(true, '关注失败', '关注失败,请重试！');
+            }
+        });
+    }
+
+    function unfollow(supplier_id) {
+        $.ajax({
+            url: '/supplier/unfollow',
+            data: {
+                supplier_id: supplier_id
+            },
+            type: "get",
+            dataType: "json",
+            success: function (json) {
+                if (json.success) {
+                    showDia(true, '取消成功', '已取消关注！');
+                } else {
+                    showDia(true, '取消失败', '取消关注失败,请重试！');
                 }
             },
             error: function (xhr, status, errorThrown) {

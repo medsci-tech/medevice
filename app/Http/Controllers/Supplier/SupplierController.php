@@ -21,7 +21,11 @@ class SupplierController extends Controller
     }
 
     public function detail(Request $request) {
-        return view('supplier.detail', ['supplier' => Supplier::find($request->input('id'))]);
+        $customer = \Helper::getCustomer();
+        return view('supplier.detail', [
+            'supplier' => Supplier::find($request->input('id')),
+            'attention' => SupplierAttention::where('supplier_id', $request->input('id'))->where('customer_id', $customer->id)->get()->toArray() ? true : false
+        ]);
     }
 
     public function follow(Request $request) {
@@ -39,6 +43,20 @@ class SupplierController extends Controller
             $attention->save();
         });
         return response()->json(['success'=> true]);
+    }
 
+    public function unfollow(Request $request)
+    {
+        //TODO redis
+        $supplierID = $request->input('supplier_id');
+        $customer = \Helper::getCustomer();
+        \DB::transaction(function () use ($supplierID, $customer) {
+            $supplier = Supplier::find($supplierID);
+            $supplier->fans -= 1;
+            $supplier->save();
+
+            SupplierAttention::where('supplier_id', $supplierID)->where('customer_id', 0)->delete();
+        });
+        return response()->json(['success' => true]);
     }
 } /*class*/

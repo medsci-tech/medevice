@@ -28,6 +28,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/', 'SupplierController@index');
         Route::get('/detail', 'SupplierController@detail');
         Route::any('/follow', 'SupplierController@follow');
+        Route::any('/unfollow ', 'SupplierController@unfollow');
     });
 
     Route::group(['prefix' => 'personal', 'namespace' => 'Personal'], function () {

@@ -55,7 +55,7 @@ class SupplierController extends Controller
             $supplier->fans -= 1;
             $supplier->save();
 
-            SupplierAttention::where('supplier_id', $supplierID)->where('customer_id', 0)->delete();
+            SupplierAttention::where('supplier_id', $supplierID)->where('customer_id', $customer->id)->delete();
         });
         return response()->json(['success' => true]);
     }

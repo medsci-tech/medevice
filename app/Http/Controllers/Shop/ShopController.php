@@ -31,8 +31,12 @@ class ShopController extends Controller
 
     public function detail(Request $request)
     {
+        $customer = \Helper::getCustomer();
         $product = Product::find($request->input('id'));
-        return view('shop.detail', ['product' => $product]);
+        return view('shop.detail', [
+            'product' => $product,
+            'collect' => ProductCollection::where('product_id', $request->input('id'))->where('customer_id', $customer->id)->get()->toArray() ? true : false
+        ]);
     }
 
     public function createOrder(Request $request) {

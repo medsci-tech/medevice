@@ -50,9 +50,15 @@
     <button class="ui-btn ui-btn-primary" onclick="showOrderDia()">
         申请
     </button>
-    <button class="ui-btn ui-btn-danger" onclick="collect({{$product->id}})">
-        收藏
-    </button>
+    @if($collect)
+        <button class="ui-btn ui-btn-danger" onclick="cancelCollect({{$product->id}})">
+            取消收藏
+        </button>
+    @else
+        <button class="ui-btn ui-btn-danger" onclick="collect({{$product->id}})">
+            收藏
+        </button>
+    @endif
 </div>
 
 <div class="ui-dialog" id="create">
@@ -175,6 +181,7 @@
             dataType: "json",
             success: function (json) {
                 if(json.success) {
+                    window.location.reload();
                     showDia(true, '收藏成功', '恭喜你，收藏成功！');
                 } else {
                     showDia(true, '收藏失败', '收藏失败,请重试！');
@@ -183,6 +190,29 @@
             error: function (xhr, status, errorThrown) {
                 console.log("Sorry, there was a problem!");
                 showDia(true, '收藏失败', '收藏失败,请重试！');
+            }
+        });
+    }
+
+    function cancelCollect(product_id) {
+        $.ajax({
+            url: '/supplier/cancel-collect',
+            data: {
+                product_id: product_id
+            },
+            type: "get",
+            dataType: "json",
+            success: function (json) {
+                if (json.success) {
+                    window.location.reload();
+                    showDia(true, '取消成功', '已取消收藏！');
+                } else {
+                    showDia(true, '取消失败', '取消收藏失败,请重试！');
+                }
+            },
+            error: function (xhr, status, errorThrown) {
+                console.log("Sorry, there was a problem!");
+                showDia(true, '关注失败', '关注失败,请重试！');
             }
         });
     }

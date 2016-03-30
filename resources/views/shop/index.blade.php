@@ -61,7 +61,7 @@
             success: function (json) {
                 strHtml = '';
                 $(json.products).each(function () {
-                    strHtml += '<li class="ui-border-t"><div class="ui-list-thumb"><span style="background-image:url(http://placeholder.qiniudn.com/100x100)"></span></div><div class="ui-list-info"><a href="/shop/product-detail?id='+this.id+'" class="ui-txt-default"><h4 class="ui-nowrap">'+this.name+'</h4><p class="ui-nowrap">'+this.introduction+'</p></a></div></li>';
+                    strHtml += '<li class="ui-border-t"><div class="ui-list-thumb"><span style="background-image:url(http://placeholder.qiniudn.com/100x100)"></span></div><div class="ui-list-info"><a href="/shop/detail?id=' + this.id + '" class="ui-txt-default"><h4 class="ui-nowrap">' + this.name + '</h4><p class="ui-nowrap">' + this.introduction + '</p></a></div></li>';
                 });
                 $("#tbc_" + id).html(strHtml);
             },

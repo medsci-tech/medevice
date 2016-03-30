@@ -17,7 +17,7 @@
                     <h5>{{$attention->supplier->supplier_name}}</h5>
                 </div>
                 <h5 class="order_cancel">
-                    <button class="ui-btn ui-btn-danger" onclick="unfollow({{$attention->id}})">取消关注</button>
+                    <button class="ui-btn ui-btn-danger" onclick="unfollow({{$attention->supplier->id}})">取消关注</button>
                 </h5>
             </li>
             <li class="ui-border-t">

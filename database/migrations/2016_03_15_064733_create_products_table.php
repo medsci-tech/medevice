@@ -25,6 +25,7 @@ class CreateProductsTable extends Migration
             $table->text('introduction');
             $table->decimal('price');
             $table->integer('fans')->unsigned()->comment('关注数');
+            $table->string('logo_image_url')->nullable()->comment('Logo图片地址');
             $table->timestamps();
         });
     }

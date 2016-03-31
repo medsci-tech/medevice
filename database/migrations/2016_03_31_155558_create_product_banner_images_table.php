@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableProductBannerImages extends Migration
+class CreateProductBannerImagesTable extends Migration
 {
     /**
      * Run the migrations.

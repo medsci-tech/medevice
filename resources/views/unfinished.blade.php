@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
-    <title>¾´ÇëÆÚ´ý</title>
+    <title>æ•¬è¯·æœŸå¾…</title>
     <link rel="stylesheet" href="{{asset('/css/frozen.css')}}">
     <link rel="stylesheet" href="{{asset('/css/main.css')}}">
 
@@ -13,7 +13,7 @@
 <div class="signup-padding">
     <div class="ui-top wait_border">
         <div class="ui-dialog-bd">
-            <a>¼´½«ÉÏÏß£¬¾´ÇëÆÚ´ý...</a>
+            <a>å³å°†ä¸Šçº¿ï¼Œæ•¬è¯·æœŸå¾…...</a>
         </div>
     </div>
 </div>

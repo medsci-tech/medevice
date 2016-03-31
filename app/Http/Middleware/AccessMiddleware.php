@@ -17,7 +17,7 @@ class AccessMiddleware
     public function handle($request, Closure $next)
     {
         $user = \Helper::getSessionCachedUser();
-        if (!Customer::where('openid', $user['openid'])->get()) {
+        if (!Customer::where('openid', $user['openid'])->first()) {
             return redirect('/register/create');
         }
         return $next($request);

@@ -43,4 +43,11 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/', 'ArticleController@index');
     });
 
+    Route::get('/about-us', function () {
+        return view('about-us');
+    });
+    Route::get('/unfinished', function () {
+        return view('unfinished');
+    });
+
 });

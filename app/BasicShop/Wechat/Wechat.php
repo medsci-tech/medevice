@@ -81,11 +81,11 @@ class Wechat
                 return Message::make('text')->content('欢迎您回来!');
             }
 
-            $customer = new Customer();
-            $customer->openid = $openId;
-            $typeId = CustomerType::where('type_en', AppConstant::CUSTOMER_COMMON)->first()->id;
-            $customer->type_id = $typeId;
-            $customer->save();
+//            $customer = new Customer();
+//            $customer->openid = $openId;
+//            $typeId = CustomerType::where('type_en', AppConstant::CUSTOMER_COMMON)->first()->id;
+//            $customer->type_id = $typeId;
+//            $customer->save();
             return Message::make('text')->content('嗨!欢迎关注药械通!');
         };
     }

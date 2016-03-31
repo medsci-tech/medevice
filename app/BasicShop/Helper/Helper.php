@@ -53,7 +53,8 @@ class Helper
 
             return $user;
         } catch (\Exception $e) {
-            abort('404');
+            //abort('404');
+            return redirect('/register/create');
         }
     }
 
@@ -68,7 +69,8 @@ class Helper
 
             return $customer;
         } catch (\Exception $e) {
-            abort('404');
+            //abort('404');
+            return redirect('/register/create');
         }
     }
 

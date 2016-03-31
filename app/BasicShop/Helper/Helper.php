@@ -21,12 +21,14 @@ class Helper
     public function getSessionCachedUser()
     {
         if (!$this->hasSessionCachedUser()) {
-            throw new UserNotCachedException;
+            //throw new UserNotCachedException;
+            return redirect('/register/create');
         }
         $user = \Session::get(AppConstant::SESSION_USER_KEY);
 
         if (is_null($user)) {
-            throw new UserNotSubscribedException;
+            //throw new UserNotSubscribedException;
+            return redirect('/register/create');
         }
         return $user;
     }

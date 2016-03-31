@@ -63,15 +63,19 @@ class Helper
      */
     public function getCustomer()
     {
-        try {
+        //try {
             $user = \Helper::getSessionCachedUser();
-            $customer = Customer::where('openid', $user['openid'])->firstOrFail();
-
+        $customer = Customer::where('openid', $user['openid'])->first();
+        if ($customer) {
             return $customer;
-        } catch (\Exception $e) {
-            //abort('404');
+        } else {
             return redirect('/register/create');
         }
+
+        //} catch (\Exception $e) {
+            //abort('404');
+
+        //}
     }
 
 }

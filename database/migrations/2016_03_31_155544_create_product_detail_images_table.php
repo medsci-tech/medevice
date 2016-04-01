@@ -17,6 +17,7 @@ class CreateProductDetailImagesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('product_id');
             $table->string('image_url');
+            $table->string('image_name');
             $table->integer('priority')->default(0);
             $table->foreign('product_id')->references('id')->on('products');
 

@@ -17,6 +17,7 @@ class CreateSupplierDetailImagesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('supplier_id');
             $table->string('image_url');
+            $table->string('image_name');
             $table->integer('priority')->default(0);
             $table->foreign('supplier_id')->references('id')->on('suppliers');
 

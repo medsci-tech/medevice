@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{asset('/css/main.css')}}">
 </head>
 <body>
-<div class="ui-slider" style="padding-top: 55%">
+<div class="ui-slider">
     <ul class="ui-slider-content" style="width: 300%">
         <li><span style="background-image:url(http://placeholder.qiniudn.com/640x200)"></span></li>
         <li><span style="background-image:url(http://placeholder.qiniudn.com/640x200)"></span></li>
@@ -30,6 +30,21 @@
             <div class="ui-txt-info"><a
                         href="/supplier/detail?id={{$product->supplier_id}}">{{$product->supplier->supplier_name}}</a>
             </div>
+        </li>
+        <li class="ui-border-t">
+            <p>注册号：<br>
+                <span class="ui-txt-tips ui-txt-info">{{$product->registration_no}}</span>
+            </p>
+        </li>
+        <li class="ui-border-t">
+            <p>产品使用科室：<br>
+                <span class="ui-txt-tips ui-txt-info">{{$product->department}}</span>
+            </p>
+        </li>
+        <li class="ui-border-t">
+            <p>产品使用部位：<br>
+                <span class="ui-txt-tips ui-txt-info">{{$product->body_parts}}</span>
+            </p>
         </li>
     </ul>
     <ul class="ui-list ui-list-text ui-list-link ui-border-b ui-txt-sub">

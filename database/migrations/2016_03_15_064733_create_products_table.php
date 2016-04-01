@@ -19,11 +19,13 @@ class CreateProductsTable extends Migration
 
             $table->integer('supplier_id')->unsigned()->comment('所属供应商ID');
             $table->foreign('supplier_id')->references('id')->on('suppliers');
-
-            $table->string('name');
-            $table->string('remark');
-            $table->text('introduction');
-            $table->decimal('price');
+            $table->string('name')->comment('名称');
+            $table->string('remark')->comment('备注');
+            $table->text('introduction')->comment('介绍');
+            $table->text('registration_no')->comment('注册号');
+            $table->text('department')->comment('科室');
+            $table->text('body_parts')->comment('使用部位');
+            $table->decimal('price')->comment('价格');
             $table->integer('fans')->unsigned()->comment('关注数');
             $table->string('logo_image_url')->nullable()->comment('Logo图片地址');
             $table->timestamps();

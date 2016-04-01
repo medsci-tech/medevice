@@ -53,4 +53,8 @@ Route::group(['middleware' => ['web']], function () {
         return view('video');
     });
 
+    Route::get('/mime-video', function () {
+        return view('video-for-mime');
+    });
+
 });

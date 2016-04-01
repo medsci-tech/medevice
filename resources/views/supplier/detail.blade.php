@@ -34,9 +34,9 @@
 
 
 <div class="ui-top ui-border-tb spxq">
-    <div class="ui-flex ui-flex-pack-center ui-txt-highlight">商品详情</div>
+    <div class="ui-flex ui-flex-pack-center ui-txt-highlight">厂家简介</div>
     <div><img src="http://placeholder.qiniudn.com/640x200" width="100%"></div>
-    <span>{{$supplier->suppliers_desc}}</span>
+    <span>{{$supplier->supplier_desc}}</span>
 </div>
 
 <div class="ui-footer ui-footer-stable ui-btn-group ui-border-t" style="height: 50px">

@@ -11,7 +11,7 @@
 <div>
     <ul class="ui-list ui-list-text ui-border-tb ui-txt-sub ui-top">
         <li class="ui-border-t">
-            <div class="ui-txt-info">公开课</div>
+            <div class="ui-txt-info">甲状腺公开课</div>
         </li>
 
         <li class="ui-border-t">

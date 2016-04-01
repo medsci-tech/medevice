@@ -9,29 +9,24 @@
     <link rel="stylesheet" href="{{asset('/css/main.css')}}">
 </head>
 <body>
-<div class="comm-padding">
-    <h4>{{$supplier->supplier_name}}</h4>
+<div class="ui-border-tb comm-padding">
+    <div><img src="http://placeholder.qiniudn.com/640x200" width="100%"></div>
+    <span>{{$supplier->supplier_name}}<br>
+        <span class="ui-txt-tips ui-txt-info">{{$supplier->supplier_desc}}</span>
+    </span>
 </div>
 
-<div>
-    <ul class="ui-list ui-list-text ui-list-link ui-border-b ui-txt-sub">
+<div style="margin-bottom: 60px">
+    <ul class="ui-list ui-list-text ui-list-link ui-border-tb">
         @foreach($supplier->products as $product)
             <li class="ui-border-t">
-                <p>{{$product->name}}</p>
+                <p class="ui-nowrap ui-txt-sub ui-txt-info">{{$product->name}}</p>
 
-                <div class="ui-txt-info"><a href="/shop/detail?id={{$product->id}}">点击查看</a></div>
+                <div class="ui-txt-info ui-txt-sub"><a href="/shop/detail?id={{$product->id}}">查看</a></div>
             </li>
         @endforeach
     </ul>
 </div>
-
-
-<div class="ui-top ui-border-tb spxq">
-    <div class="ui-flex ui-flex-pack-center ui-txt-highlight">厂家简介</div>
-    <div><img src="http://placeholder.qiniudn.com/640x200" width="100%"></div>
-    <span>{{$supplier->supplier_desc}}</span>
-</div>
-
 
 <div class="ui-footer ui-footer-stable ui-btn-group ui-border-t" style="height: 50px">
     @if($attention)

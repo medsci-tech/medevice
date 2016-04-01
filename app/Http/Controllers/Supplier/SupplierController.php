@@ -13,8 +13,8 @@ class SupplierController extends Controller
 {
     public function __construct()
     {
-        //$this->middleware('wechat');
-        //$this->middleware('access');
+        $this->middleware('wechat');
+        $this->middleware('access');
     }
 
     public function index() {
@@ -22,11 +22,10 @@ class SupplierController extends Controller
     }
 
     public function detail(Request $request) {
-        //$customer = \Helper::getCustomer();
+        $customer = \Helper::getCustomer();
         return view('supplier.detail', [
             'supplier' => Supplier::find($request->input('id')),
-            //'attention' => SupplierAttention::where('supplier_id', $request->input('id'))->where('customer_id', $customer->id)->get()->toArray() ? true : false
-            'attention' => false
+            'attention' => SupplierAttention::where('supplier_id', $request->input('id'))->where('customer_id', $customer->id)->get()->toArray() ? true : false
         ]);
     }
 

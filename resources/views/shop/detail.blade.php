@@ -60,6 +60,13 @@
     <div class="ui-flex ui-flex-pack-center ui-txt-highlight">商品详情</div>
     <span>{{$product->introduction}}</span>
 
+    @foreach($product->detailImages as $images)
+        <div class="ui-flex ui-flex-pack-center ui-txt-highlight">{{$images->image_url}}</div>
+        <div><img src="{{$images->image_name}}" width="100%"></div>
+    @endforeach
+
+
+    <div class="ui-flex ui-flex-pack-center ui-txt-highlight">商品详情</div>
     <div><img src="http://placeholder.qiniudn.com/640x200" width="100%"></div>
 </div>
 

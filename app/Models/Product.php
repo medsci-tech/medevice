@@ -12,4 +12,9 @@ class Product extends Model
     {
         return $this->belongsTo('App\Models\Supplier', 'supplier_id');
     }
+
+    public function detailImages()
+    {
+        return $this->hasMany('App\Models\Product', 'product_id');
+    }
 }

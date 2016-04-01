@@ -27,7 +27,7 @@
         <li class="ui-border-t">
             <p class="ui-nowrap">供应商</p>
 
-            <div class="ui-txt-info">{{$product->supplier->suppliers_name}}</div>
+            <div class="ui-txt-info">{{$product->supplier->supplier_name}}</div>
         </li>
     </ul>
     <ul class="ui-list ui-list-text ui-list-link ui-border-b ui-txt-sub">

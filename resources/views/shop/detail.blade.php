@@ -61,8 +61,8 @@
     <span>{{$product->introduction}}</span>
 
     @foreach($product->detailImages as $images)
-        <div class="ui-flex ui-flex-pack-center ui-txt-highlight">{{$images->image_url}}</div>
-        <div><img src="{{$images->image_name}}" width="100%"></div>
+        <div class="ui-flex ui-flex-pack-center ui-txt-highlight">{{$images->image_name}}</div>
+        <div><img src="{{$images->image_url}}" width="100%"></div>
     @endforeach
 
 

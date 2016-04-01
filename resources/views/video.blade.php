@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-    <title>Ê¹ÓÃ½Ì³Ì</title>
+    <title>ä½¿ç”¨æ•™ç¨‹</title>
     <link rel="stylesheet" href="{{asset('/css/frozen.css')}}">
     <link rel="stylesheet" href="{{asset('/css/main.css')}}">
 </head>
@@ -11,7 +11,7 @@
 <div>
     <ul class="ui-list ui-list-text ui-border-tb ui-txt-sub ui-top">
         <li class="ui-border-t">
-            <div class="ui-txt-info">MLC (multicore)Ò»´ÎÐÔÊ¹ÓÃ´©´Ì»î¼ìÕë</div>
+            <div class="ui-txt-info">MLC (multicore)ä¸€æ¬¡æ€§ä½¿ç”¨ç©¿åˆºæ´»æ£€é’ˆ</div>
         </li>
 
         <li class="ui-border-t">

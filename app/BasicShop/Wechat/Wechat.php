@@ -41,7 +41,7 @@ class Wechat
                 new MenuItem('入驻厂家', 'view', url('/supplier'))
             ]),
             (new MenuItem("直播讲堂"))->buttons([
-                new MenuItem('直播讲堂', 'view', url('/unfinished')),
+                new MenuItem('直播讲堂', 'view', url('/video')),
                 new MenuItem('最新资讯', 'view', url('/article'))
             ]),
             (new MenuItem("个人中心"))->buttons([

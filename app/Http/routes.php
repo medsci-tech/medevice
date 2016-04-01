@@ -49,5 +49,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/unfinished', function () {
         return view('unfinished');
     });
+    Route::get('/video', function () {
+        return view('video');
+    });
 
 });

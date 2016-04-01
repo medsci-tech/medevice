@@ -28,7 +28,7 @@
             <p class="ui-nowrap">供应商</p>
 
             <div class="ui-txt-info"><a
-                        href="/supplier/detail?id={{$product->supplier->id}}">{{$product->supplier->supplier_name}}</a>
+                        href="/supplier/detail?id={{$product->supplier_id}}">{{$product->supplier->supplier_name}}</a>
             </div>
         </li>
     </ul>

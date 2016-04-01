@@ -15,7 +15,7 @@
 
 <div>
     <ul class="ui-list ui-list-text ui-list-link ui-border-b ui-txt-sub">
-        @foreach($products as $product)
+        @foreach($supplier->products as $product)
             <li class="ui-border-t">
                 <p>{{$product->name}}</p>
 

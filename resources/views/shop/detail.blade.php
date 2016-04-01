@@ -43,7 +43,7 @@
 
 <div class="ui-top ui-border-tb spxq">
     <div class="ui-flex ui-flex-pack-center ui-txt-highlight">商品详情</div>
-    <span>文字部分</span>
+    <span>{{$product->introduction}}</span>
 
     <div><img src="http://placeholder.qiniudn.com/640x200" width="100%"></div>
 </div>

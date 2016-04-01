@@ -14,21 +14,14 @@
 </div>
 
 <div>
-    <ul class="ui-list ui-list-text ui-border-tb ui-txt-sub">
-        <li class="ui-border-t">
-            <p class="ui-nowrap">xxxx</p>
-            <div class="ui-txt-info">xxxx</div>
-        </li>
-        <li class="ui-border-t">
-            <p class="ui-nowrap">xxxx</p>
-            <div class="ui-txt-info">xxxx</div>
-        </li>
-    </ul>
     <ul class="ui-list ui-list-text ui-list-link ui-border-b ui-txt-sub">
-        <li class="ui-border-t">
-            <p>使用教程</p>
-            <div class="ui-txt-info">点击查看</div>
-        </li>
+        @foreach($products as $product)
+            <li class="ui-border-t">
+                <p>{{$product->name}}</p>
+
+                <div class="ui-txt-info"><a href="/shop/detail?id={{$product->id}}">点击查看</a></div>
+            </li>
+        @endforeach
     </ul>
 </div>
 

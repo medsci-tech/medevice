@@ -9,27 +9,27 @@
     <link rel="stylesheet" href="{{asset('/css/main.css')}}">
 </head>
 <body>
-<div class="comm-padding">
-    <h4>{{$supplier->supplier_name}}</h4>
+
+<div class="ui-top ui-border-tb spxq">
+    <div class="ui-flex ui-flex-pack-center ui-txt-highlight">{{$supplier->supplier_name}}</div>
+    <div><img src="http://placeholder.qiniudn.com/640x200" width="100%"></div>
+    <span>{{$supplier->supplier_desc}}</span>
 </div>
 
+<div class="comm-padding">
+    <h4>产品列表</h4>
+</div>
 <div>
     <ul class="ui-list ui-list-text ui-list-link ui-border-b ui-txt-sub">
         @foreach($supplier->products as $product)
             <li class="ui-border-t">
-                <p>{{$product->name}}</p>
-
-                <div class="ui-txt-info"><a href="/shop/detail?id={{$product->id}}">点击查看</a></div>
+                <p></p>{{$product->name}}<br>
+                <span class="ui-txt-tips ui-txt-info"><a href="/shop/detail?id={{$product->id}}">点击查看</a></span>
+                </p>
             </li>
+
         @endforeach
     </ul>
-</div>
-
-
-<div class="ui-top ui-border-tb spxq">
-    <div class="ui-flex ui-flex-pack-center ui-txt-highlight">厂家简介</div>
-    <div><img src="http://placeholder.qiniudn.com/640x200" width="100%"></div>
-    <span>{{$supplier->supplier_desc}}</span>
 </div>
 
 <div class="ui-footer ui-footer-stable ui-btn-group ui-border-t" style="height: 50px">

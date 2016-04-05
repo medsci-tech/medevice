@@ -8,22 +8,21 @@
     <link rel="stylesheet" href="{{asset('/css/main.css')}}">
 </head>
 <body>
-<div>
     @foreach($videos as $video)
-        <ul class="ui-list ui-list-text ui-border-tb ui-txt-sub ui-top">
-            <li class="ui-border-t">
-                <div class="ui-txt-info">{{$video->video_name}}</div>
-            </li>
-            <li class="ui-border-t">
+        <div style="padding: 5px;">
+            <h3 style="width: 100%; text-align: center;">{{$video->video_name}}</h3>
+
+            <div class="weui_cells weui_cells_access">
                 <video controls="controls"
                        src="{{$video->video_url}}"
                        width="100%" height="100%"
                         >
                 </video>
-            </li>
-        </ul>
+            </div>
+        </div>
     @endforeach
-</div>
-
 </body>
 </html>
+
+
+

@@ -21,13 +21,13 @@
                 <div class="ui-list-thumb">
                     <span style="background-image:url(http://placeholder.qiniudn.com/100x100)"></span>
                 </div>
-                <a href="/shop/detail?id={{$collection->product->id}}">
-                    <div class="ui-list-info">
+                <div class="ui-list-info">
+                    <a href="/shop/detail?id={{$collection->product->id}}">
                         <h5 class="ui-nowrap">{{$collection->product->introduction}}</h5>
 
                         <p class="ui-nowrap ui-txt-info">时间：{{$collection->created_at}}</p>
-                    </div>
-                </a>
+                    </a>
+                </div>
             </li>
             <li class="ui-border-t">
                 <div class="ui-list-info">

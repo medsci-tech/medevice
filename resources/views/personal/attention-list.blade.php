@@ -22,13 +22,13 @@
                 <div class="ui-list-thumb">
                     <span style="background-image:url(http://placeholder.qiniudn.com/100x100)"></span>
                 </div>
-                <a href="/supplier/detail?id={{$attention->supplier->id}}">
-                    <div class="ui-list-info">
+                <div class="ui-list-info">
+                    <a href="/supplier/detail?id={{$attention->supplier->id}}">
                         <h5 class="ui-nowrap ui-txt-info">{{$attention->supplier->supplier_desc}}</h5>
 
                         <p class="ui-nowrap ui-txt-info">时间：{{$attention->created_at}}</p>
-                    </div>
-                </a>
+                    </a>
+                </div>
             </li>
         </ul>
     @endforeach

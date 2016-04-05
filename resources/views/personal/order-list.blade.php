@@ -30,11 +30,11 @@
                 </p>
             </li>
             <li class="ui-border-t">
-                <div class="ui-list-info">
-                    <h5>总价：<span class="ui-txt-warning">￥2544.00</span></h5>
-                </div>
-                <div class="order_pay"><h6 class="ui-list-action ui-btn ui-btn-danger"><a
-                                onclick="cancel({{$order->id}})">取消</a></h6></div>
+                {{--<div class="ui-list-info">--}}
+                {{--<h5>总价：<span class="ui-txt-warning">￥2544.00</span></h5>--}}
+                {{--</div>--}}
+                <div class="order_pay"><h6 class="ui-list-action ui-btn ui-btn-danger"
+                                           onclick="cancel({{$order->id}})">取消订单</h6></div>
             </li>
         </ul>
     @endforeach

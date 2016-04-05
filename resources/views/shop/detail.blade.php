@@ -69,7 +69,7 @@
 
 <div class="ui-footer ui-footer-stable ui-btn-group ui-border-t" style="height: 50px">
     <button class="ui-btn ui-btn-primary" onclick="showOrderDia()">
-        申请
+        申请代理
     </button>
     @if($collect)
         <button class="ui-btn ui-btn-danger" onclick="cancelCollect({{$product->id}})">
@@ -100,7 +100,7 @@
             </div>
 
             <div class="ui-dialog-ft">
-                <button type="button" data-role="button" onclick="store({{$product->id}})">申请代理</button>
+                <button type="button" data-role="button" onclick="store({{$product->id}})">申请</button>
                 <button type="button" data-role="button" onclick="closeOrderDia()">取消</button>
             </div>
         </form>

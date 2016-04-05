@@ -28,11 +28,10 @@
                             </div>
                             <div class="ui-list-info">
                                 <a href="/shop/detail?id={{$product->id}}" class="ui-txt-default">
-                                    <h4 class="ui-nowrap">{{$product->name}}</h4>
-                                    <p class="ui-nowrap">{{$product->introduction}}</p>
+                                    <h6 class="">{{$product->name}}</h6>
+                                    <h6 class="ui-nowrap ui-txt-info">{{$product->introduction}}</h6>
                                 </a>
                             </div>
-
                         </li>
                     @endforeach
                 </ul>

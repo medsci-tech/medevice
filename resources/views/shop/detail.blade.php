@@ -49,7 +49,6 @@
         @if($product->videos()->first())
         <li class="ui-border-t">
             <p class="ui-nowrap">使用教程</p>
-
             <div class="ui-txt-info">
                 <a href="/shop/video?product_id={{$product->id}}">
                     点击查看

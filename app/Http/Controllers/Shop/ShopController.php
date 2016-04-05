@@ -46,7 +46,7 @@ class ShopController extends Controller
         $order->customer_id = $customer->id;
         $order->product_id = $request->input('product_id');
         $order->phone = $request->input('phone');
-        $order->product_id = $request->input('product_id');
+        $order->remark = $request->input('remark');
         return response()->json(['success' => true]);
     }
 

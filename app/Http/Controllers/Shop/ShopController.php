@@ -84,9 +84,9 @@ class ShopController extends Controller
 
     public function video(Request $request)
     {
+        $video = ProductVideo::where('product_id', $request->input('product_id'))->get();
         return view('shop.video', [
-            'videos' => ProductVideo::where('product_id', $request->input('product_id'))->get()
+            'videos' => $video ? $video : []
         ]);
-
     }
 } /*class*/

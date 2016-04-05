@@ -50,9 +50,10 @@
     <ul class="ui-list ui-list-text ui-list-link ui-border-b ui-txt-sub">
         <li class="ui-border-t">
             <a href="/shop/video?product_id={{$product->id}}">
-                <p>使用教程</p>
+                <p class="ui-nowrap">使用教程</p>
 
-                <div class="ui-txt-info">点击查看</div>
+                <div class="ui-txt-info">点击查看
+                </div>
             </a>
         </li>
     </ul>

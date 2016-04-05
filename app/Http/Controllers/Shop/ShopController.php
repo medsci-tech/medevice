@@ -16,8 +16,8 @@ class ShopController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('wechat');
-        $this->middleware('access');
+        //$this->middleware('wechat');
+        //$this->middleware('access');
     }
 
     public function index() {
@@ -47,6 +47,7 @@ class ShopController extends Controller
         $order->product_id = $request->input('product_id');
         $order->phone = $request->input('phone');
         $order->remark = $request->input('remark');
+        $order->save();
         return response()->json(['success' => true]);
     }
 

@@ -52,7 +52,7 @@ Route::group(['middleware' => ['web']], function () {
         return view('unfinished');
     });
     Route::get('/video', function () {
-        return view('video');
+        return view('video', ['videos' => \App\Models\ProductVideo::paginate(5)]);
     });
 
     Route::get('/mime-video', function () {

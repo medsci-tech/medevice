@@ -51,6 +51,13 @@ class ShopController extends Controller
         return response()->json(['success' => true]);
     }
 
+    public function cancelOrder(Request $request)
+    {
+        $customer = \Helper::getCustomer();
+        Order::where('supplier_id', $request->input('id'))->where('customer_id', $customer->id)->delete();
+        return response()->json(['success' => true]);
+    }
+
     public function collect(Request $request) {
         $productID = $request->input('product_id');
         $customer = \Helper::getCustomer();

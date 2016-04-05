@@ -16,9 +16,7 @@
                 <div class="ui-list-info">
                     <h5>{{$attention->supplier->supplier_name}}</h5>
                 </div>
-                <h5 class="order_cancel">
-                    <button class="ui-btn ui-btn-danger" onclick="unfollow({{$attention->supplier->id}})">取消关注</button>
-                </h5>
+                <h5 class="order_cancel"><a onclick="unfollow({{$attention->supplier->id}})">取消关注</a></h5>
             </li>
             <li class="ui-border-t">
                 <div class="ui-list-thumb">
@@ -35,6 +33,7 @@
         </ul>
     @endforeach
 </div>
+<div class="ui-txt-tips ui-txt-info ui-flex ui-flex-pack-center ui-top">已经没有更多关注了！</div>
 <div class="ui-dialog" id="dialog">
     <div class="ui-dialog-cnt">
         <header class="ui-dialog-hd ui-border-b">

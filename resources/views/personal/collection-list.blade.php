@@ -39,6 +39,7 @@
         </ul>
     @endforeach
 </div>
+<div class="ui-txt-tips ui-txt-info ui-flex ui-flex-pack-center ui-top">已经没有更多收藏了！</div>
 <div class="ui-dialog" id="dialog">
     <div class="ui-dialog-cnt">
         <header class="ui-dialog-hd ui-border-b">

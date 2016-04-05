@@ -21,6 +21,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::any('/get-products-by-cat-id', 'ShopController@getProductByCatID');
         Route::get('/detail', 'ShopController@detail');
         Route::any('/create-order', 'ShopController@createOrder');
+        Route::any('/cancel-order', 'ShopController@cancelOrder');
         Route::any('/collect', 'ShopController@collect');
         Route::any('/cancel-collect', 'ShopController@cancelCollect');
         Route::any('/video', 'ShopController@video');

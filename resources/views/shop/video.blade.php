@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
     <title>使用教程</title>
-    <link rel="stylesheet" href="{{asset('/css/frozen.css')}}">
-    <link rel="stylesheet" href="{{asset('/css/main.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/weui.css')}}">
 </head>
 <body>
     @foreach($videos as $video)

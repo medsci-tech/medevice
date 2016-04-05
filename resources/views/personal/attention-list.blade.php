@@ -24,7 +24,7 @@
                 </div>
                 <a href="/supplier/detail?id={{$attention->supplier->id}}">
                     <div class="ui-list-info">
-                        <h5 class="ui-nowrap">{{$attention->supplier->supplier_desc}}</h5>
+                        <h5 class="ui-nowrap ui-txt-info">{{$attention->supplier->supplier_desc}}</h5>
 
                         <p class="ui-nowrap ui-txt-info">时间：{{$attention->created_at}}</p>
                     </div>

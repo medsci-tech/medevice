@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ProductCollection;
+use App\Models\ProductVideo;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -74,5 +75,13 @@ class ShopController extends Controller
             ProductCollection::where('product_id', $productID)->where('customer_id', $customer->id)->delete();
         });
         return response()->json(['success' => true]);
+    }
+
+    public function video(Request $request)
+    {
+        return view('shop.video', [
+            'videos' => ProductVideo::where('product_id', $request->input('product_id'))->get()
+        ]);
+
     }
 } /*class*/

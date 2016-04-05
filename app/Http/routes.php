@@ -23,6 +23,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::any('/create-order', 'ShopController@createOrder');
         Route::any('/collect', 'ShopController@collect');
         Route::any('/cancel-collect', 'ShopController@cancelCollect');
+        Route::any('/video', 'ShopController@video');
     });
 
     Route::group(['prefix' => 'supplier', 'namespace' => 'Supplier'], function () {

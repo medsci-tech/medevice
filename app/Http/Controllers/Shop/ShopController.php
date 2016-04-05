@@ -41,7 +41,12 @@ class ShopController extends Controller
     }
 
     public function createOrder(Request $request) {
-        Order::create($request->input());
+        $customer = \Helper::getCustomer();
+        $order = new Order();
+        $order->customer_id = $customer->id;
+        $order->product_id = $request->input('product_id');
+        $order->phone = $request->input('phone');
+        $order->product_id = $request->input('product_id');
         return response()->json(['success' => true]);
     }
 

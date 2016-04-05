@@ -26,13 +26,13 @@
 
                     <p class="ui-nowrap ui-txt-info">时间：{{$order->created_at}}</p>
                 </div>
-                <p class="order_cancel">￥{{$order->product->price}}<br><span class="ui-flex ui-flex-pack-end">x3</span>
-                </p>
+                {{--<p class="order_cancel">￥{{$order->product->price}}<br><span class="ui-flex ui-flex-pack-end"></span>--}}
+                {{--</p>--}}
             </li>
             <li class="ui-border-t">
-                {{--<div class="ui-list-info">--}}
-                {{--<h5>总价：<span class="ui-txt-warning">￥2544.00</span></h5>--}}
-                {{--</div>--}}
+                <div class="ui-list-info">
+                    <h5>{{$order->product->price}}</h5>
+                </div>
                 <div class="order_pay"><h6 class="ui-list-action ui-btn ui-btn-danger"
                                            onclick="cancel({{$order->id}})">取消订单</h6></div>
             </li>

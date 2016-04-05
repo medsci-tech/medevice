@@ -100,7 +100,7 @@
             </div>
 
             <div class="ui-dialog-ft">
-                <button type="button" data-role="button" onclick="store({{$product->id}})">申请</button>
+                <button type="button" data-role="button" onclick="store({{$product->id}})">申请代理</button>
                 <button type="button" data-role="button" onclick="closeOrderDia()">取消</button>
             </div>
         </form>

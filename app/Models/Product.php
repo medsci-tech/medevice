@@ -17,4 +17,9 @@ class Product extends Model
     {
         return $this->hasMany('App\Models\ProductDetailImage', 'product_id');
     }
+
+    public function videos()
+    {
+        return $this->hasMany('App\Models\ProductVideo', 'product_id');
+    }
 }

@@ -170,7 +170,7 @@
         $.ajax({
             url: '/shop/create-order',
             data: {
-                product_id: product_id,
+                id: product_id,
                 name: name,
                 phone: phone,
                 remark: remark,

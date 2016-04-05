@@ -54,7 +54,7 @@ class ShopController extends Controller
     public function cancelOrder(Request $request)
     {
         $customer = \Helper::getCustomer();
-        Order::where('supplier_id', $request->input('id'))->where('customer_id', $customer->id)->delete();
+        Order::where('id', $request->input('id'))->where('customer_id', $customer->id)->delete();
         return response()->json(['success' => true]);
     }
 

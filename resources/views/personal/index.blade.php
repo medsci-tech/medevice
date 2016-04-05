@@ -39,11 +39,11 @@
         </li>
     </ul>
 
-    <ul class="ui-list ui-list-text ui-list-link ui-border-tb ui-top">
-        <li class="ui-border-t">
-            <h4>联系客服</h4>
-        </li>
-    </ul>
+    {{--<ul class="ui-list ui-list-text ui-list-link ui-border-tb ui-top">--}}
+    {{--<li class="ui-border-t">--}}
+    {{--<h4>联系客服</h4>--}}
+    {{--</li>--}}
+    {{--</ul>--}}
 </div>
 
 </body>

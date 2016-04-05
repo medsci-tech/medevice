@@ -21,23 +21,29 @@
         </li>
     </ul>
 
-    <ul class="ui-list ui-list-text ui-list-link ui-border-tb ui-top">
-        <li class="ui-border-t">
-            <h4><a href="/personal/order-list">我的订单</a></h4>
-        </li>
-    </ul>
+    <a href="/personal/order-list">
+        <ul class="ui-list ui-list-text ui-list-link ui-border-tb ui-top">
+            <li class="ui-border-t">
+                <h4>我的订单</h4>
+            </li>
+        </ul>
+    </a>
 
-    <ul class="ui-list ui-list-text ui-list-link ui-border-tb ui-top">
-        <li class="ui-border-t">
-            <h4><a href="/personal/collection-list">收藏商品</a></h4>
-        </li>
-    </ul>
+    <a href="/personal/collection-list">
+        <ul class="ui-list ui-list-text ui-list-link ui-border-tb ui-top">
+            <li class="ui-border-t">
+                <h4>收藏商品</h4>
+            </li>
+        </ul>
+    </a>
 
-    <ul class="ui-list ui-list-text ui-list-link ui-border-tb ui-top">
-        <li class="ui-border-t">
-            <h4><a href="/personal/attention-list">关注厂家</a></h4>
-        </li>
-    </ul>
+    <a href="/personal/attention-list">
+        <ul class="ui-list ui-list-text ui-list-link ui-border-tb ui-top">
+            <li class="ui-border-t">
+                <h4>关注厂家</h4>
+            </li>
+        </ul>
+    </a>
 
     {{--<ul class="ui-list ui-list-text ui-list-link ui-border-tb ui-top">--}}
     {{--<li class="ui-border-t">--}}

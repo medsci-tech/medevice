@@ -11,7 +11,7 @@
 <body>
 <div>
     <div class="lfloat ui-col ui-col-25">
-        <ul id="nav">
+        <ul id="nav" style="overflow-y: hidden">
             @foreach($categories as $cat)
                 <li class="aa" id="tb_{{$cat->id}}" onClick="hoverli({{$cat->id}});">{{$cat->type_ch}}</li>
             @endforeach

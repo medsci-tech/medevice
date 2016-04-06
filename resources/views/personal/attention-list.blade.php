@@ -20,7 +20,7 @@
             </li>
             <li class="ui-border-t">
                 <div class="ui-list-thumb">
-                    <span style="background-image:url(http://placeholder.qiniudn.com/100x100)"></span>
+                    <span style="background-image:url({{$attention->supplier->logo_image_url}})"></span>
                 </div>
                 <div class="ui-list-info">
                     <a href="/supplier/detail?id={{$attention->supplier->id}}">

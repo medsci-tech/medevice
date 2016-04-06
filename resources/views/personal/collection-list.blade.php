@@ -31,7 +31,8 @@
             </li>
             <li class="ui-border-t">
                 <div class="ui-list-info">
-                    <h5>价格：<span class="ui-txt-warning">￥{{$collection->product->price}}</span></h5>
+                    <h5>价格：<span class="ui-txt-warning">待定</span></h5>
+                    {{--<h5>价格：<span class="ui-txt-warning">￥{{$collection->product->price}}</span></h5>--}}
                 </div>
                 <div class="order_pay"><h6 class="ui-list-action ui-btn ui-btn-danger"
                                            onclick="cancelCollect({{$collection->product->id}})">取消收藏</h6></div>

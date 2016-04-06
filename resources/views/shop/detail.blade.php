@@ -21,7 +21,8 @@
 
 <div class="comm-padding">
     <h4>{{$product->name}}</h4>
-    <h4 class="ui-txt-warning">￥{{$product->price}}</h4>
+    {{--<h4 class="ui-txt-warning">￥{{$product->price}}</h4>--}}
+    <h4 class="ui-txt-warning">价格待定</h4>
 </div>
 
 <div>

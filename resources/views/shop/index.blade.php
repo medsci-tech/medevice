@@ -7,6 +7,16 @@
     <title>产品展示</title>
     <link rel="stylesheet" href="{{asset('/css/frozen.css')}}">
     <link rel="stylesheet" href="{{asset('/css/main.css')}}">
+    <style>
+        html {
+            -ms-overflow-style: none;
+            overflow: -moz-scrollbars-none;
+        }
+
+        html::-webkit-scrollbar {
+            width: 0px
+        }
+    </style>
 </head>
 <body>
 <div>

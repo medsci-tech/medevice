@@ -64,7 +64,7 @@ class Helper
     public function getCustomer()
     {
         //try {
-            $user = \Helper::getSessionCachedUser();
+        $user = \Helper::getSessionCachedUser();
         $customer = Customer::where('openid', $user['openid'])->first();
         if ($customer) {
             return $customer;

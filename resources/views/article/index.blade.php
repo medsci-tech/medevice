@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="ui-slider" style="padding-top: 55%">
-    <ul class="ui-slider-content" style="width: 300%">
+    <ul class="ui-slider-content">
         <li><span style="background-image:url(http://7xso2p.com1.z0.glb.clouddn.com/xwzx03.png)"></span></li>
         <li><span style="background-image:url(http://7xso2p.com1.z0.glb.clouddn.com/xwzx02.png)"></span></li>
         <li><span style="background-image:url(http://7xso2p.com1.z0.glb.clouddn.com/xwzx01.png)"></span></li>

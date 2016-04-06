@@ -14,7 +14,7 @@
         <ul class="ui-list  ui-border-tb" style="margin-top: 10px">
             <li class="ui-border-t">
                 <div class="ui-list-info">
-                    <h5>订单：45782333</h5>
+                    <h5>订单：{{$order->order_sn}}</h5>
                 </div>
             </li>
             <li class="ui-border-t">

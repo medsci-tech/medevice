@@ -47,7 +47,7 @@ class ShopController extends Controller
         $order->product_id = $request->input('product_id');
         $order->phone = $request->input('phone');
         $order->remark = $request->input('remark');
-        $order->registration_no = 'med' . time();
+        $order->order_sn = 'med' . time();
         $order->save();
         return response()->json(['success' => true]);
     }

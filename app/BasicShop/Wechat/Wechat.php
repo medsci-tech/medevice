@@ -40,7 +40,7 @@ class Wechat
                 new MenuItem('产品展示', 'view', url('/shop')),
                 new MenuItem('入驻厂家', 'view', url('/supplier'))
             ]),
-            (new MenuItem("业务培训"))->buttons([
+            (new MenuItem("专业培训"))->buttons([
                 new MenuItem('视频讲堂', 'view', url('/video')),
                 new MenuItem('最新资讯', 'view', url('/article'))
             ]),

@@ -23,7 +23,7 @@
         @foreach($suppliers as $supplier)
             <div class="list_img">
                 <div class="ui-border-radius">
-                    <a href="/supplier/detail?id={{$supplier->id}}"><img src="http://placeholder.qiniudn.com/640x200"/></a>
+                    <a href="/supplier/detail?id={{$supplier->id}}"><img src="{{$supplier->logo_image_url}}"/></a>
                     <h5 class="ui-nowrap">{{$supplier->supplier_name}}</h5>
                     <span class="ui-badge">{{$supplier->fans}}人关注</span>
                 </div>

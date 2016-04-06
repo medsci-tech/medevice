@@ -28,6 +28,7 @@ class CreateProductsTable extends Migration
             $table->decimal('price')->comment('价格');
             $table->integer('fans')->unsigned()->comment('关注数');
             $table->string('logo_image_url')->nullable()->comment('Logo图片地址');
+            $table->string('tag')->comment('标签');
             $table->timestamps();
         });
     }

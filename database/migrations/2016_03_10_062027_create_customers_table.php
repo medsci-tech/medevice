@@ -23,6 +23,7 @@ class CreateCustomersTable extends Migration
             $table->string('openid')->comment('wechat open id');
             $table->string('nickname')->nullable()->comment('wechat nick name');
             $table->string('head_image_url')->nullable()->comment('wechat head img url');
+            $table->string('company')->nullable()->comment('公司名称');
 
             $table->unique('phone');
             $table->timestamps();

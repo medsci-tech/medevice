@@ -20,7 +20,7 @@ class Product extends Model
 
     public function bannerImages()
     {
-        return $this->hasMany('App\Models\BannerDetailImage', 'product_id');
+        return $this->hasMany('App\Models\ProductBannerImage', 'product_id');
     }
 
     public function videos()

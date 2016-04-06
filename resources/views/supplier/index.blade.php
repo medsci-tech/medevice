@@ -19,7 +19,7 @@
 
 <div>
     <section class="ui-panel">
-        <h2 class="ui-arrowlink">厂家<span class="ui-panel-subtitle">1328家</span></h2>
+        {{--<h2 class="ui-arrowlink">厂家<span class="ui-panel-subtitle">1328家</span></h2>--}}
         @foreach($suppliers as $supplier)
             <div class="list_img">
                 <div class="ui-border-radius">

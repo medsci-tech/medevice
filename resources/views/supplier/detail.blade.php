@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="ui-border-tb comm-padding">
-    <div><img src="http://placeholder.qiniudn.com/640x200" width="100%"></div>
+    <div><img src="{{$supplier->logo_image_url}}" width="100%"></div>
     <span>{{$supplier->supplier_name}}<br>
         <span class="ui-txt-tips ui-txt-info">{{$supplier->supplier_desc}}</span>
     </span>

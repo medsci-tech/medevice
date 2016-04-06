@@ -26,7 +26,7 @@ class CreateOrdersTable extends Migration
             $table->string('name', 31)->comment('姓名.');
             $table->text('remark')->comment('备注.');
             $table->integer('count')->comment('数量.');
-            $table->string('order_sn')->comment('订单号.');
+            $table->integer('order_sn')->comment('订单号.');
 
             $table->timestamps();
         });

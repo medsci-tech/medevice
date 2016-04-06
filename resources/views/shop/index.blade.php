@@ -29,11 +29,11 @@
                             <div class="ui-list-info">
                                 <a href="/shop/detail?id={{$product->id}}" class="ui-txt-default">
                                     <h6 class="">{{$product->name}}</h6>
-
-                                    <div class="ui-label-list">
-                                        <label class="ui-label-s ui-nowrap"
-                                               style="color:#6caf61;border-color: #6caf61;">{{$product->introduction}}</label>
-                                    </div>
+                                    {{--<div class="ui-label-list">--}}
+                                    {{--<label class="ui-label-s ui-nowrap"--}}
+                                    {{--style="color:#6caf61;border-color: #6caf61;">{{$product->introduction}}</label>--}}
+                                    {{--</div>--}}
+                                    <div class="ui-badge-muted" style="background:#18B4ED;">标签标签标签标签</div>
                                     {{--<h6 class="ui-nowrap ui-txt-info">{{$product->introduction}}</h6>--}}
                                 </a>
                             </div>

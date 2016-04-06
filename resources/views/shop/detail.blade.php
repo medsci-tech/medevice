@@ -9,13 +9,15 @@
     <link rel="stylesheet" href="{{asset('/css/main.css')}}">
 </head>
 <body>
-{{--<div class="ui-slider">--}}
-{{--<ul class="ui-slider-content" style="width: 300%">--}}
-{{--@foreach($product->bannerImages as $images)--}}
-{{--<li><span style="background-image:url({{$images->image_url}})"></span></li>--}}
-{{--@endforeach--}}
-{{--</ul>--}}
-{{--</div>--}}
+@if($product->bannerImages()->first())
+    <div class="ui-slider">
+        <ul class="ui-slider-content" style="width: 300%">
+            @foreach($product->bannerImages as $images)
+                <li><span style="background-image:url({{$images->image_url}})"></span></li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
 <div class="comm-padding">
     <h4>{{$product->name}}</h4>

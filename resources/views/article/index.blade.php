@@ -11,9 +11,9 @@
 <body>
 <div class="ui-slider">
     <ul class="ui-slider-content" style="width: 300%">
-        <li><span style="background-image:url(http://7xso2p.com1.z0.glb.clouddn.com/xwzx03.png)"></span></li>
-        <li><span style="background-image:url(http://7xso2p.com1.z0.glb.clouddn.com/xwzx02.png)"></span></li>
-        <li><span style="background-image:url(http://7xso2p.com1.z0.glb.clouddn.com/xwzx01.png)"></span></li>
+        <li><span style="background-image:url(http://7xso2p.com1.z0.glb.clouddn.com/MDKJ_3.png)"></span></li>
+        <li><span style="background-image:url(http://7xso2p.com1.z0.glb.clouddn.com/MDKJ_2.png)"></span></li>
+        <li><span style="background-image:url(http://7xso2p.com1.z0.glb.clouddn.com/MDKJ_1.png)"></span></li>
     </ul>
 </div>
 

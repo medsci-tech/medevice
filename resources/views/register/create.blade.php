@@ -32,6 +32,7 @@
 
                 <div class="ui-select">
                     <select class="ui-txt-info" name="customer_type" id="customer_type">
+                        <option value="">请选择用户类型</option>
                         <option value="1">个人用户</option>
                         <option value="2">企业用户</option>
                     </select>
@@ -79,7 +80,8 @@
                     required: true,
                     rangelength: [6, 6]
                 },
-                company: "required"
+                company: "required",
+                customer_type: "required"
             },
             messages: {
                 phone: '手机号不能为空',
@@ -87,7 +89,8 @@
                     required: "验证码不能为空",
                     rangelength: "验证码格式不正确"
                 },
-                company: '公司名称不能为空'
+                company: '公司名称不能为空',
+                customer_type: '请选择用户类型'
             },
             errorPlacement:function(error,element) {
                 if (element.attr("name") == "phone") {
@@ -103,6 +106,11 @@
                 if (element.attr("name") == "company") {
                     $("#label_company").empty();
                     $("#label_company").append(error.html());
+                }
+
+                if (element.attr("name") == "customer_type") {
+                    $("#label_customer_type").empty();
+                    $("#label_customer_type").append(error.html());
                 }
             }
         });

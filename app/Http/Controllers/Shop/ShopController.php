@@ -16,8 +16,8 @@ class ShopController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('wechat');
-        $this->middleware('access');
+        //$this->middleware('wechat');
+        //$this->middleware('access');
     }
 
     public function index() {

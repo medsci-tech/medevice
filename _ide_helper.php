@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.2.22 on 2016-03-18.
+ * Generated for Laravel 5.2.22 on 2016-03-30.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -10805,6 +10805,8 @@ namespace {
         /**
          * 
          *
+         * @param $phone
+         * @return boolean 
          * @static 
          */
         public static function createMessageVerify($phone){
@@ -10821,6 +10823,19 @@ namespace {
          */
         public static function sendMessageVerify($phone, $message){
             return \App\BasicShop\Message\LuosimaoMessageSender::sendMessageVerify($phone, $message);
+        }
+
+        /**
+         *
+         *
+         * @param $phone int
+         * @param $verify int
+         * @return boolean
+         * @static
+         */
+        public static function checkVerify($phone, $code)
+        {
+            return \App\BasicShop\Message\LuosimaoMessageSender::checkVerify($phone, $code);
         }
         
     }

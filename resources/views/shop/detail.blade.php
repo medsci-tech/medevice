@@ -205,8 +205,8 @@
             dataType: "json",
             success: function (json) {
                 if(json.success) {
-                    window.location.reload();
                     showDia(true, '收藏成功', '恭喜你，收藏成功！');
+                    window.location.reload();
                 } else {
                     showDia(true, '收藏失败', '收藏失败,请重试！');
                 }
@@ -228,8 +228,8 @@
             dataType: "json",
             success: function (json) {
                 if (json.success) {
-                    window.location.reload();
                     showDia(true, '取消成功', '已取消收藏！');
+                    window.location.reload();
                 } else {
                     showDia(true, '取消失败', '取消收藏失败,请重试！');
                 }

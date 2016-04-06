@@ -18,7 +18,7 @@
         <li class="ui-border-t">
             <h4 class="ui-nowrap">用户类型</h4>
 
-            <div class="ui-txt-info">{{$customer->type()->type_ch}}</div>
+            <div class="ui-txt-info">{{$customer->type->type_ch}}</div>
         </li>
     </ul>
 

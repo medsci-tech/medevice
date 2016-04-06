@@ -68,7 +68,12 @@
                     //strHtml += '<li class="ui-border-t"><div class="ui-list-thumb"><span style="background-image:url(http://placeholder.qiniudn.com/100x100)"></span></div><div class="ui-list-info"><a href="/shop/detail?id=' + this.id + '" class="ui-txt-default"><h4 class="ui-nowrap">' + this.name + '</h4><p class="ui-nowrap">' + this.introduction + '</p></a></div></li>';
                     strHtml += '<li class="ui-border-t"><div class="ui-list-thumb"><span style="background-image:url(' + this.logo_image_url + ')"></span></div><div class="ui-list-info"><a href="/shop/detail?id=' + this.id + '" class="ui-txt-default"><h6 class="">' + this.name + '</h6><div class="ui-badge-muted" style="background:#18B4ED;">标签标签标签标签</div></a></div></li>';
                 });
-                $("#tbc_" + id).html(strHtml);
+                if (strHtml == '') {
+                    $("#tbc_" + id).html('<div class="ui-txt-tips ui-txt-info ui-flex ui-flex-pack-center ui-top">已经没有更多订单了！</div>');
+                } else {
+                    $("#tbc_" + id).html(strHtml);
+                }
+
             },
             error: function (xhr, status, errorThrown) {
                 console.log("Sorry, there was a problem!");

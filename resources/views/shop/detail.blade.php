@@ -129,23 +129,23 @@
 <script src="{{asset('/js/zepto.min.js')}}"></script>
 <script src="{{asset('/js/frozen.js')}}"></script>
 <script>
-    (function () {
-        var slider = new fz.Scroll('.ui-slider', {
-            role: 'slider',
-            indicator: true,
-            autoplay: true,
-            interval: 3000
-        });
-
-        slider.on('beforeScrollStart', function (from, to) {
-            console.log(from, to);
-        });
-
-        slider.on('scrollEnd', function (cruPage) {
-            //console.log(curPage);
-        });
-
-    })();
+    //    (function () {
+    //        var slider = new fz.Scroll('.ui-slider', {
+    //            role: 'slider',
+    //            indicator: true,
+    //            autoplay: true,
+    //            interval: 3000
+    //        });
+    //
+    //        slider.on('beforeScrollStart', function (from, to) {
+    //            console.log(from, to);
+    //        });
+    //
+    //        slider.on('scrollEnd', function (cruPage) {
+    //            //console.log(curPage);
+    //        });
+    //
+    //    })();
 
     function showDia(success, title, content) {
         $("#dia_title").text(title);

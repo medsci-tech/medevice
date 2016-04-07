@@ -11,8 +11,8 @@
 <body>
 <div class="ui-slider">
     <ul class="ui-slider-content" style="width: 300%">
-        <li><span style="background-image:url(http://7xshr6.com1.z0.glb.clouddn.com/MDKJ_1.png)"></span></li>
-        <li><span style="background-image:url(http://7xshr6.com1.z0.glb.clouddn.com/MDKJ_2.png)"></span></li>
+        <li><span style="background-image:url(http://7xshr6.com1.z0.glb.clouddn.com/zxt_1.png)"></span></li>
+        <li><span style="background-image:url(http://7xshr6.com1.z0.glb.clouddn.com/zxt_2.png)"></span></li>
         <li><span style="background-image:url(http://7xshr6.com1.z0.glb.clouddn.com/MDKJ_3.png)"></span></li>
     </ul>
 </div>
@@ -49,6 +49,22 @@
                         <p class="ui-nowrap-multi">
                             近日，来自梅奥诊所的研究人员通过对超过2000名胰腺癌病人进行研究表示，人们不必担心进行癌症的活组织检查会促进癌症扩散，相关文章刊登于国际杂志Gut上，该研究表明，相比未活组织检查的病人而言，进行活组织检查的患者或许会有一个较好的预后及较长的生存期。</p>
                             `</a>
+                    </div>
+                </li>
+
+                <li class="ui-border-t">
+                    <div class="ui-list-img">
+                        <span style="background-image:url(https://mmbiz.qlogo.cn/mmbiz/6NqW2jAcryUvvvC0RQ3Y3oJKr7cxfqlBwiaytqOUs0u2iazJazokybtaJoULgwhMEnCEA1kFiaNVuyGR1A1Jt0sXQ/0?wx_fmt=png)"></span>
+                    </div>
+                    <div class="ui-list-info">
+                        <a href="http://mp.weixin.qq.com/s?__biz=MzAwMTc3MDY4NA==&mid=404288805&idx=1&sn=f8660c50eec380506ee8ea2fdfe6c6c7#rd">
+                            <h4 class="ui-nowrap">低钾血症的致命损害有哪些？</h4>
+
+                            <p class="ui-nowrap-multi">
+                                正常人体内血清K+
+                                3.5-5.5mmol/L，临床上由于摄入不足或某些疾病或服用某些药物导致低血钾不少见，低钾血症是指血清K+＜3.5mmol/L。但是，血清钾降低，并不一定表示体内缺钾，只能表示细胞外液中钾的浓度降低，而全身缺钾时，血清钾不一定降低。故临床上应结合病史和临床表现分析判断。低血钾的临床表现跟血清钾浓度和钾浓度下降速度以及机体所处的状态密切相关。今天小编就和大家谈谈这个低血钾致命的损害。
+                            </p>
+                        </a>
                     </div>
                 </li>
             </ul>

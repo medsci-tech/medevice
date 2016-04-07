@@ -59,4 +59,8 @@ Route::group(['middleware' => ['web']], function () {
         return view('video-for-mime');
     });
 
+    Route::group(['prefix' => 'test'], function () {
+        Route::get('/success', 'TestController@success');
+    });
+
 });

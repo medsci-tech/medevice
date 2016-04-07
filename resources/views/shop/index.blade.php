@@ -16,6 +16,10 @@
         html::-webkit-scrollbar {
             width: 0px
         }
+
+        .lfloat {
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>

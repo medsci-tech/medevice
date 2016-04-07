@@ -16,6 +16,11 @@
             <div class="ui-txt-info">{{$customer->nickname}}</div>
         </li>
         <li class="ui-border-t">
+            <h4 class="ui-nowrap">手机号</h4>
+
+            <div class="ui-txt-info">{{$customer->phone}}</div>
+        </li>
+        <li class="ui-border-t">
             <h4 class="ui-nowrap">用户类型</h4>
 
             <div class="ui-txt-info">{{$customer->type->type_ch}}</div>

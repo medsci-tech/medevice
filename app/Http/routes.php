@@ -14,6 +14,9 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/create', 'RegisterController@create');
         Route::post('/store', 'RegisterController@store');
         Route::any('/send-message', 'RegisterController@sendMessage');
+        Route::any('/agreement', function () {
+            return view('register.agreement');
+        });
     });
 
     Route::group(['prefix' => 'shop', 'namespace' => 'Shop'], function () {

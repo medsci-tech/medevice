@@ -30,7 +30,7 @@
                 <label class="ui-checkbox-s">
                     <input type="checkbox" name="checkbox" checked>
                 </label>
-                <span class="ui-txt-sub">我已阅读并同意<a>《药械通用户须知》</a></span>
+                <span class="ui-txt-sub">我已阅读并同意<a href="/register/agreement">《药械通用户须知》</a></span>
             </p>
             <h5 style="text-align: center"></h5>
 

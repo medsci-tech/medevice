@@ -31,13 +31,11 @@ class RegisterController extends Controller
             'phone.phone'     => '手机格式不正确',
             'phone.unique'    => '手机号已注册',
             'code.required'   => '验证码不能为空',
-            'code.digits'     => '验证码格式不正确',
-            'company.required' => '公司名称不能为空',
+            'code.digits' => '验证码格式不正确'
         );
         $validator = \Validator::make($request->all(), [
             'phone' => 'required|digits:11|unique:customers,phone',
-            'code' => 'required|digits:6',
-            'company' => 'required'
+            'code' => 'required|digits:6'
         ], $messages);
         if ($validator->fails()) {
             return view('register.create', ['errors' => $validator->errors(), 'input' => $request->all()]);
@@ -47,8 +45,7 @@ class RegisterController extends Controller
             $user = \Helper::getUser();
             $comstomer = new Customer();
             $comstomer->phone = $request->input('phone');
-            $comstomer->type_id = $request->input('customer_type');
-            $comstomer->company = $request->input('company');
+            $comstomer->type_id = 1;
             $comstomer->openid = $user['openid'];
             $comstomer->nickname = $user['nickname'];
             $comstomer->head_image_url = $user['headimgurl'];

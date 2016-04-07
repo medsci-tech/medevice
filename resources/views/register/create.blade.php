@@ -26,29 +26,6 @@
                 <a href="#" class="ui-icon-close" onclick="clean('code')"></a>
             </div>
             <h6 class="ui-txt-warning" id="label_code">{{ isset($errors) ?  $errors->first('code') : '' }}</h6>
-
-            <div class="ui-form-item ui-border-radius ui-top ui-form">
-                <label class="ui-txt-info">用户类型</label>
-
-                <div class="ui-select">
-                    <select class="ui-txt-info" name="customer_type" id="customer_type">
-                        <option value="">请选择用户类型</option>
-                        <option value="1">个人用户</option>
-                        <option value="2">企业用户</option>
-                    </select>
-                </div>
-            </div>
-            <h6 class="ui-txt-warning"
-                id="label_customer_type">{{ isset($errors) ?  $errors->first('customer_type') : '' }}</h6>
-
-            <div class="ui-form-item ui-form-item-pure ui-border-radius ui-form ui-top" style="display: none"
-                 id="company_div">
-                <input type="text" placeholder="请输入公司名称" id="company" name="company"
-                       value="个人用户">
-                <a href="#" class="ui-icon-close" onclick="clean('company')"></a>
-            </div>
-            <h6 class="ui-txt-warning" id="label_company">{{ isset($errors) ?  $errors->first('company') : '' }}</h6>
-
             <p class="ui-flex ui-flex-pack-center ui-top">
                 <label class="ui-checkbox-s">
                     <input type="checkbox" name="checkbox" checked>
@@ -79,18 +56,14 @@
                 code: {
                     required: true,
                     rangelength: [6, 6]
-                },
-                company: "required",
-                customer_type: "required"
+                }
             },
             messages: {
                 phone: '手机号不能为空',
                 code: {
                     required: "验证码不能为空",
                     rangelength: "验证码格式不正确"
-                },
-                company: '公司名称不能为空',
-                customer_type: '请选择用户类型'
+                }
             },
             errorPlacement:function(error,element) {
                 if (element.attr("name") == "phone") {
@@ -101,16 +74,6 @@
                 if(element.attr("name") == "code") {
                     $("#label_code").empty();
                     $("#label_code").append(error.html());
-                }
-
-                if (element.attr("name") == "company") {
-                    $("#label_company").empty();
-                    $("#label_company").append(error.html());
-                }
-
-                if (element.attr("name") == "customer_type") {
-                    $("#label_customer_type").empty();
-                    $("#label_customer_type").append(error.html());
                 }
             }
         });
@@ -168,18 +131,6 @@
             }
         }
     }
-
-    $(document).ready(function () {
-        $('#customer_type').change(function () {
-            if ($('#customer_type').val() == 2) {
-                clean('company');
-                document.getElementById("company_div").style.display = "block";
-            } else {
-                document.getElementById("company").value = "个人用户";
-                document.getElementById("company_div").style.display = "none";
-            }
-        })
-    })
 </script>
 </body>
 </html>

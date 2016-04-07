@@ -11,7 +11,7 @@ class TestController extends Controller
         $this->middleware('wechat');
     }
 
-    public function success(Request $request)
+    public function success()
     {
         $appId = env('WX_APPID');
         $secret = env('WX_SECRET');

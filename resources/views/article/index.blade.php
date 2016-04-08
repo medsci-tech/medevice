@@ -13,7 +13,7 @@
     <ul class="ui-slider-content" style="width: 300%">
         <li><span style="background-image:url(http://7xshr6.com1.z0.glb.clouddn.com/zxt_1.png)"></span></li>
         <li><span style="background-image:url(http://7xshr6.com1.z0.glb.clouddn.com/zxt_2.png)"></span></li>
-        <li><span style="background-image:url(http://7xshr6.com1.z0.glb.clouddn.com/MDKJ_3.png)"></span></li>
+        <li><span style="background-image:url(http://7xso2p.com1.z0.glb.clouddn.com/MDKJ.png)"></span></li>
     </ul>
 </div>
 
@@ -48,13 +48,13 @@
 
                         <p class="ui-nowrap-multi">
                             近日，来自梅奥诊所的研究人员通过对超过2000名胰腺癌病人进行研究表示，人们不必担心进行癌症的活组织检查会促进癌症扩散，相关文章刊登于国际杂志Gut上，该研究表明，相比未活组织检查的病人而言，进行活组织检查的患者或许会有一个较好的预后及较长的生存期。</p>
-                            `</a>
+                        </a>
                     </div>
                 </li>
 
                 <li class="ui-border-t">
                     <div class="ui-list-img">
-                        <span style="background-image:url(https://mmbiz.qlogo.cn/mmbiz/6NqW2jAcryUvvvC0RQ3Y3oJKr7cxfqlBwiaytqOUs0u2iazJazokybtaJoULgwhMEnCEA1kFiaNVuyGR1A1Jt0sXQ/0?wx_fmt=png)"></span>
+                        <span style="background-image:url(http://7xso2p.com1.z0.glb.clouddn.com/200%E5%B0%BA%E5%AF%B8.png)"></span>
                     </div>
                     <div class="ui-list-info">
                         <a href="http://mp.weixin.qq.com/s?__biz=MzAwMTc3MDY4NA==&mid=404288805&idx=1&sn=f8660c50eec380506ee8ea2fdfe6c6c7#rd">

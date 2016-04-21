@@ -46,7 +46,8 @@ class Wechat
             ]),
             (new MenuItem("会员中心"))->buttons([
                 new MenuItem('个人信息', 'view', url('/personal')),
-                new MenuItem('关于我们', 'view', url('/about-us'))
+                new MenuItem('关于我们', 'view', url('/about-us')),
+                new MenuItem('售后电话', 'view', url('/phone'))
             ])
         ];
 

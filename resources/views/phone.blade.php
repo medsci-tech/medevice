@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
-    <title>售后服务</title>
+    <title>鍞悗鏈嶅姟</title>
     <link rel="stylesheet" href="css/frozen.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
@@ -15,9 +15,9 @@
     <div class="ui-list ui-list-text ui-border-b">
         <li>
             <p class="ui-txt-info">
-                施康培产品售后服务咨询热线：<br>
-                售后热线①：027-82736788<br>
-                售后热线②：027-82819567
+                鏂藉悍鍩逛骇鍝佸敭鍚庢湇鍔″挩璇㈢儹绾匡細<br>
+                鍞悗鐑嚎鈶狅細027-82736788<br>
+                鍞悗鐑嚎鈶★細027-82819567
             </p>
         </li>
     </div>

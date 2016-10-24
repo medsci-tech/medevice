@@ -14,6 +14,11 @@ class TestController extends Controller
         foreach ($customers as $customer) {
             array_push($array, $customer->phone);
         }
-        dd(json_encode($array));
+        $string = json_encode($array);
+        echo $string;
+        echo '<hr/>';
+        echo json_decode($string);
+        echo '<hr/>';
+        dd($string);
     }
 }

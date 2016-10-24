@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.2.22 on 2016-03-30.
+ * Generated for Laravel 5.2.22 on 2016-05-11.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -10826,12 +10826,12 @@ namespace {
         }
 
         /**
-         *
+         * 
          *
          * @param $phone int
          * @param $verify int
          * @return boolean
-         * @static
+         * @static 
          */
         public static function checkVerify($phone, $code)
         {

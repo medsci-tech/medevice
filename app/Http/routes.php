@@ -70,4 +70,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/success', 'TestController@success');
     });
 
+    Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () {
+        Route::get('/', 'AdminController@export');
+    });
 });

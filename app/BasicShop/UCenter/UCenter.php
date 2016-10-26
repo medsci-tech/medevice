@@ -24,7 +24,7 @@ class UCenter
      */
     public function __construct()
     {
-        $this->_appId = env('UCENTER_APPID');
+        $this->_appId = env('UCENTER_APPID', 1);
         if (\Session::has('uc_token') && \Session::get('uc_token')) {
             $this->_token = \Session::get('uc_token');
         } else {

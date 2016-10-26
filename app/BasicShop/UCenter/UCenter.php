@@ -20,7 +20,7 @@ class UCenter
     public function __construct()
     {
         if (\Session::has('uc_token') && \Session::get('uc_token')) {
-            $this->_token = env('LUOSIMAO_API_KEY');
+            $this->_token = \Session::get('uc_token');
         } else {
             $token = $this->getToken();
             \Session::set('uc_token', $token);
@@ -38,10 +38,9 @@ class UCenter
         $request = [
             'url' => 'http://user.mime.org.cn/api/public/get_token',
             'params' => [
-                'appId' => '2'
+                'appId' => '1'
             ]
         ];
-
         $response = \MyHttp::post($request);
         $result = $response->json();
         if ($result->code == 200) {
@@ -61,16 +60,15 @@ class UCenter
     function updateBeans($phone, $action, $beans)
     {
         $request = [
-            'url' => 'http://user.mime.org.cn/api/public/get_token',
+            'url' => 'http://user.mime.org.cn/api/credit/index',
             'params' => [
                 'phone' => $phone,
                 'token' => $this->_token,
-                'appId' => '2',
+                'appId' => '1',
                 'action' => $action,
                 'mdBeans' => $beans,
             ]
         ];
-
         $response = \MyHttp::post($request);
         $result = $response->json();
         if ($result->code == 200) {

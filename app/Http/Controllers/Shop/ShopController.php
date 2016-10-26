@@ -138,7 +138,7 @@ class ShopController extends Controller
     {
         $video = ProductVideo::where('product_id', $request->input('product_id'))->get();
 
-        \UCenter::updateBeans($this->_customer->phone, 'collect_product', '1');
+        \UCenter::updateBeans($this->_customer->phone, 'video_view', '1');
         return view('shop.video', [
             'videos' => $video ? $video : []
         ]);

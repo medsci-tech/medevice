@@ -163,8 +163,8 @@ return [
         App\Providers\WechatServiceProvider::class,
         App\Providers\HelperServiceProvider::class,
         App\Providers\MessageServiceProvider::class,
-        App\Providers\UCenterProvider::class,
-        Vinelab\Http\HttpServiceProvider::class
+        //App\Providers\UCenterProvider::class,
+        //Vinelab\Http\HttpServiceProvider::class
     ],
 
     /*
@@ -217,8 +217,8 @@ return [
         'Wechat'    => App\BasicShop\Wechat\Facades\Wechat::class,
         'Helper'    => App\BasicShop\Helper\Facades\Helper::class,
         'MessageSender' => App\BasicShop\Message\Facades\MessageSender::class,
-        'UCenter' => App\BasicShop\UCenter\Facades\UCenter::class,
-        'MyHttp' => Vinelab\Http\Facades\Client::class,
+        //'UCenter' => App\BasicShop\UCenter\Facades\UCenter::class,
+        //'MyHttp' => Vinelab\Http\Facades\Client::class,
     ],
 
 ];

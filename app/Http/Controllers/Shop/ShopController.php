@@ -75,6 +75,9 @@ class ShopController extends Controller
         $order->remark = $request->input('remark');
         $order->order_sn = time();
         $order->save();
+
+        \UCenter::updateBeans($this->_customer->phone, 'apply_for_surrogate', '1');
+
         return response()->json(['success' => true]);
     }
 
@@ -101,12 +104,12 @@ class ShopController extends Controller
             $product->fans += 1;
             $product->save();
 
-            \UCenter::updateBeans($customer->phone, 'collect_product', '1');
-
             $collection = new ProductCollection();
             $collection->product_id = $productID;
             $collection->customer_id = $customer->id;
             $collection->save();
+
+            \UCenter::updateBeans($customer->phone, 'collect_product', '1');
         });
         return response()->json(['success' => true]);
     }

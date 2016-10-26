@@ -3,36 +3,61 @@
 namespace App\Http\Controllers\Supplier;
 
 use App\Http\Controllers\Controller;
-use App\Models\Product;
 use App\Models\Supplier;
 use App\Http\Requests;
 use App\Models\SupplierAttention;
 use Illuminate\Http\Request;
 
+/**
+ * Class SupplierController
+ * @package App\Http\Controllers\Supplier
+ */
 class SupplierController extends Controller
 {
+    /**
+     * @var \App\Models\Customer
+     */
+    protected $_customer;
+
     public function __construct()
     {
         $this->middleware('wechat');
         $this->middleware('access');
+        $this->_customer = \Helper::getCustomer();
     }
 
-    public function index() {
-        return view('supplier.index', ['suppliers' =>  Supplier::all()]);
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function index()
+    {
+        return view('supplier.index', ['suppliers' => Supplier::all()]);
     }
 
-    public function detail(Request $request) {
-        $customer = \Helper::getCustomer();
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function detail(Request $request)
+    {
+        $customer = $this->_customer;
+
+        \UCenter::updateBeans($customer->phone, 'vendor_view', '1');
         return view('supplier.detail', [
             'supplier' => Supplier::find($request->input('id')),
             'attention' => SupplierAttention::where('supplier_id', $request->input('id'))->where('customer_id', $customer->id)->get()->toArray() ? true : false
         ]);
     }
 
-    public function follow(Request $request) {
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function follow(Request $request)
+    {
         //TODO redis
         $supplierID = $request->input('supplier_id');
-        $customer = \Helper::getCustomer();
+        $customer = $this->_customer;
         \DB::transaction(function () use ($supplierID, $customer) {
             $supplier = Supplier::find($supplierID);
             $supplier->fans += 1;
@@ -42,15 +67,21 @@ class SupplierController extends Controller
             $attention->customer_id = $customer->id;
             $attention->supplier_id = $supplierID;
             $attention->save();
+
+            \UCenter::updateBeans($customer->phone, 'follow_vendor', '1');
         });
-        return response()->json(['success'=> true]);
+        return response()->json(['success' => true]);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function unfollow(Request $request)
     {
         //TODO redis
         $supplierID = $request->input('supplier_id');
-        $customer = \Helper::getCustomer();
+        $customer = $this->_customer;
         \DB::transaction(function () use ($supplierID, $customer) {
             $supplier = Supplier::find($supplierID);
             $supplier->fans -= 1;

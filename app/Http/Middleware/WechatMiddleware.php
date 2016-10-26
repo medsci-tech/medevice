@@ -27,8 +27,6 @@ class WechatMiddleware
          * */
         if ($user) {
             \Session::put(AppConstant::SESSION_USER_KEY, $user->all());
-        } else {
-            \Session::put(AppConstant::SESSION_USER_KEY, null);
         }
 
         return $next($request);

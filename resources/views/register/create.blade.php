@@ -19,6 +19,13 @@
             </div>
             <h6 class="ui-txt-warning" id="label_phone">{{ isset($errors) ?  $errors->first('phone') : '' }}</h6>
 
+            <div class="ui-form-item ui-form-item-pure ui-border-radius ui-form">
+                <input type="password" placeholder="请输入密码" id="password" name="password"
+                       value="{{ isset($input) ? $input['password'] : '' }}">
+                <a href="#" class="ui-icon-close" onclick="clean('password')"></a>
+            </div>
+            <h6 class="ui-txt-warning" id="label_password">{{ isset($errors) ?  $errors->first('password') : '' }}</h6>
+
             <div class="ui-form-item ui-form-item-r ui-border-radius ui-top ui-form">
                 <input type="text" placeholder="请输入验证码" id="code" name="code"
                        value="{{ isset($input) ? $input['code'] : '' }}">

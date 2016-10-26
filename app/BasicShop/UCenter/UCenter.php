@@ -15,10 +15,16 @@ class UCenter
     protected $_token;
 
     /**
+     * @var string
+     */
+    protected $_appId;
+
+    /**
      * @throws \Exception
      */
     public function __construct()
     {
+        $this->_appId = env('UCENTER_APPID');
         if (\Session::has('uc_token') && \Session::get('uc_token')) {
             $this->_token = \Session::get('uc_token');
         } else {
@@ -38,7 +44,7 @@ class UCenter
         $request = [
             'url' => 'http://user.mime.org.cn/api/public/get_token',
             'params' => [
-                'appId' => '1'
+                'appId' => $this->_appId
             ]
         ];
         $response = \MyHttp::post($request);
@@ -64,7 +70,7 @@ class UCenter
             'params' => [
                 'phone' => $phone,
                 'token' => $this->_token,
-                'appId' => '1',
+                'appId' => $this->_appId,
                 'action' => $action,
                 'mdBeans' => $beans,
             ]
@@ -73,6 +79,32 @@ class UCenter
         $result = $response->json();
         if ($result->code == 200) {
             return $result->data;
+        } else {
+            throw new \Exception($result->msg);
+        }
+    }
+
+    /**
+     * @param $phone
+     * @param $password
+     * @return bool
+     * @throws \Exception
+     */
+    function register($phone, $password)
+    {
+        $request = [
+            'url' => 'http://user.mime.org.cn/api/public/register',
+            'params' => [
+                'token' => $this->_token,
+                'appId' => $this->_appId,
+                'phone' => $phone,
+                'password' => $password
+            ]
+        ];
+        $response = \MyHttp::post($request);
+        $result = $response->json();
+        if ($result->code == 200) {
+            return true;
         } else {
             throw new \Exception($result->msg);
         }

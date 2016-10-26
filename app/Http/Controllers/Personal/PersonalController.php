@@ -13,19 +13,11 @@ use App\Models\SupplierAttention;
  */
 class PersonalController extends Controller
 {
-    /**
-     * @var \App\Models\Customer
-     */
-    protected $_customer;
 
-    /**
-     *
-     */
     public function __construct()
     {
         $this->middleware('wechat');
         $this->middleware('access');
-        $this->_customer = \Helper::getCustomer();
     }
 
     /**
@@ -33,7 +25,7 @@ class PersonalController extends Controller
      */
     public function index()
     {
-        return view('personal.index', ['customer' => $this->_customer]);
+        return view('personal.index', ['customer' => \Helper::getCustomer()]);
     }
 
     /**
@@ -41,7 +33,8 @@ class PersonalController extends Controller
      */
     public function orderList()
     {
-        $orders = Order::where('customer_id', $this->_customer->id)->get();
+        $customer = \Helper::getCustomer();
+        $orders = Order::where('customer_id', $customer->id)->get();
         return view('personal.order-list', ['orders' => $orders]);
     }
 
@@ -50,7 +43,8 @@ class PersonalController extends Controller
      */
     public function collectionList()
     {
-        $collections = ProductCollection::where('customer_id', $this->_customer->id)->get();
+        $customer = \Helper::getCustomer();
+        $collections = ProductCollection::where('customer_id', $customer->id)->get();
         return view('personal.collection-list', ['collections' => $collections]);
     }
 
@@ -59,7 +53,8 @@ class PersonalController extends Controller
      */
     public function attentionList()
     {
-        $attentions = SupplierAttention::where('customer_id', $this->_customer->id)->get();
+        $customer = \Helper::getCustomer();
+        $attentions = SupplierAttention::where('customer_id', $customer->id)->get();
         return view('personal.attention-list', ['attentions' => $attentions]);
     }
 

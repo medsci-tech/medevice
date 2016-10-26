@@ -17,16 +17,10 @@ use App\Http\Requests;
  */
 class ShopController extends Controller
 {
-    /**
-     * @var \App\Models\Customer
-     */
-    protected $_customer;
-
     public function __construct()
     {
         $this->middleware('wechat');
         $this->middleware('access');
-        $this->_customer = \Helper::getCustomer();
     }
 
     /**
@@ -54,11 +48,12 @@ class ShopController extends Controller
      */
     public function detail(Request $request)
     {
-        \UCenter::updateBeans($this->_customer->phone, 'product_view', '1');
+        $customer = \Helper::getCustomer();
+        \UCenter::updateBeans($customer->phone, 'product_view', '1');
         $product = Product::find($request->input('id'));
         return view('shop.detail', [
             'product' => $product,
-            'collect' => ProductCollection::where('product_id', $request->input('id'))->where('customer_id', $this->_customer->id)->get()->toArray() ? true : false
+            'collect' => ProductCollection::where('product_id', $request->input('id'))->where('customer_id', $customer->id)->get()->toArray() ? true : false
         ]);
     }
 
@@ -68,15 +63,17 @@ class ShopController extends Controller
      */
     public function createOrder(Request $request)
     {
+        $customer = \Helper::getCustomer();
+
         $order = new Order();
-        $order->customer_id = $this->_customer->id;
+        $order->customer_id = $customer->id;
         $order->product_id = $request->input('product_id');
         $order->phone = $request->input('phone');
         $order->remark = $request->input('remark');
         $order->order_sn = time();
         $order->save();
 
-        \UCenter::updateBeans($this->_customer->phone, 'apply_for_surrogate', '1');
+        \UCenter::updateBeans($customer->phone, 'apply_for_surrogate', '1');
 
         return response()->json(['success' => true]);
     }
@@ -87,7 +84,8 @@ class ShopController extends Controller
      */
     public function cancelOrder(Request $request)
     {
-        Order::where('id', $request->input('id'))->where('customer_id', $this->_customer->id)->delete();
+        $customer = \Helper::getCustomer();
+        Order::where('id', $request->input('id'))->where('customer_id', $customer->id)->delete();
         return response()->json(['success' => true]);
     }
 
@@ -98,7 +96,7 @@ class ShopController extends Controller
     public function collect(Request $request)
     {
         $productID = $request->input('product_id');
-        $customer = $this->_customer;
+        $customer = \Helper::getCustomer();
         \DB::transaction(function () use ($productID, $customer) {
             $product = Product::find($productID);
             $product->fans += 1;
@@ -140,8 +138,8 @@ class ShopController extends Controller
     public function video(Request $request)
     {
         $video = ProductVideo::where('product_id', $request->input('product_id'))->get();
-
-        \UCenter::updateBeans($this->_customer->phone, 'video_view', '1');
+        $customer = \Helper::getCustomer();
+        \UCenter::updateBeans($customer->phone, 'video_view', '1');
         return view('shop.video', [
             'videos' => $video ? $video : []
         ]);

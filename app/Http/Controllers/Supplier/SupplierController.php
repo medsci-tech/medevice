@@ -14,16 +14,10 @@ use Illuminate\Http\Request;
  */
 class SupplierController extends Controller
 {
-    /**
-     * @var \App\Models\Customer
-     */
-    protected $_customer;
-
     public function __construct()
     {
         $this->middleware('wechat');
         $this->middleware('access');
-        $this->_customer = \Helper::getCustomer();
     }
 
     /**
@@ -40,8 +34,7 @@ class SupplierController extends Controller
      */
     public function detail(Request $request)
     {
-        $customer = $this->_customer;
-
+        $customer = \Helper::getCustomer();
         \UCenter::updateBeans($customer->phone, 'vendor_view', '1');
         return view('supplier.detail', [
             'supplier' => Supplier::find($request->input('id')),
@@ -57,7 +50,7 @@ class SupplierController extends Controller
     {
         //TODO redis
         $supplierID = $request->input('supplier_id');
-        $customer = $this->_customer;
+        $customer = \Helper::getCustomer();
         \DB::transaction(function () use ($supplierID, $customer) {
             $supplier = Supplier::find($supplierID);
             $supplier->fans += 1;
@@ -81,7 +74,7 @@ class SupplierController extends Controller
     {
         //TODO redis
         $supplierID = $request->input('supplier_id');
-        $customer = $this->_customer;
+        $customer = \Helper::getCustomer();
         \DB::transaction(function () use ($supplierID, $customer) {
             $supplier = Supplier::find($supplierID);
             $supplier->fans -= 1;

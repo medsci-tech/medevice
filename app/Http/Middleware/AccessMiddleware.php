@@ -17,10 +17,16 @@ class AccessMiddleware
     public function handle($request, Closure $next)
     {
         $user = \Helper::getSessionCachedUser();
-        if (!Customer::where('openid', $user['openid'])->first()) {
+        $customer = Customer::where('openid', $user['openid'])->first();
+        if ($customer) {
+//            if($customer->password) {
+//                return redirect('/register/set-pwd');
+//            }
+            return $next($request);
+        } else {
             return redirect('/register/create');
         }
-        return $next($request);
+
     }
 
 } /*class*/

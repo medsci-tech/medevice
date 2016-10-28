@@ -109,4 +109,33 @@ class UCenter
             throw new \Exception($result->msg);
         }
     }
+
+    /**
+     * @param $phone
+     * @param $password
+     * @return bool
+     * @throws \Exception
+     */
+    function setPwd($phone, $password)
+    {
+        $request = [
+            'url' => 'http://user.mime.org.cn/api/public/setPwd',
+            'params' => [
+                'token' => $this->_token,
+                'appId' => $this->_appId,
+                'phone' => $phone,
+                'password' => $password,
+                'repassword' => $password
+            ]
+        ];
+        $response = \MyHttp::post($request);
+        $result = $response->json();
+        dd($result);
+        if ($result->code == 200) {
+            return true;
+        } else {
+            throw new \Exception($result->msg);
+        }
+    }
+
 }

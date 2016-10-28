@@ -14,5 +14,7 @@ class VerifyCsrfToken extends BaseVerifier
     protected $except = [
         //
         '/wechat*',
+        '/register/set-pwd',
+        '/register/store',
     ];
 }

@@ -11,6 +11,8 @@ Route::group(['middleware' => ['web']], function () {
     });
 
     Route::group(['prefix' => 'register', 'namespace' => 'Register'], function () {
+        Route::get('/set-pwd', 'RegisterController@setPwdForm');
+        Route::post('/set-pwd', 'RegisterController@setPwd');
         Route::get('/create', 'RegisterController@create');
         Route::post('/store', 'RegisterController@store');
         Route::any('/send-message', 'RegisterController@sendMessage');
@@ -74,4 +76,5 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/export', 'TestController@export');
+    Route::get('/test', 'TestController@test');
 });

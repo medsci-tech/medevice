@@ -88,5 +88,43 @@ class RegisterController extends Controller
         $verifyID = \MessageSender::createMessageVerify($request->input('phone'));
         return response()->json(['success' => true, 'data' => ['verify_id' => $verifyID]]);
     }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function setPwdForm()
+    {
+        return view('register.set-pwd');
+    }
+
+    /**
+     * @param Request $request
+     * @return bool|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function setPwd(Request $request)
+    {
+        $messages = array(
+            'password.required' => '密码不能为空',
+        );
+        $validator = \Validator::make($request->all(), [
+            'password' => 'required'
+        ], $messages);
+        if ($validator->fails()) {
+            return view('register.set-pwd', ['errors' => $validator->errors(), 'input' => $request->all()]);
+        }
+
+        $customer = \Helper::getCustomer();
+        $result = \UCenter::setPwd($customer->phone, $request->input('password'));
+        if ($result) {
+            $appId = env('WX_APPID');
+            $secret = env('WX_SECRET');
+            $js = new Js($appId, $secret);
+            return view('register.set-success', ['js' => $js]);
+        } else {
+            return false;
+        }
+    }
 }
+
+
 

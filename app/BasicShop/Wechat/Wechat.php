@@ -92,21 +92,21 @@ class Wechat
      */
     public function authorizeUser($jump_url)
     {
-//        $appId = $this->_appId;
-//        $secret = $this->_secret;
-//        $auth = new Auth($appId, $secret);
-//        $result = $auth->authorize(url($jump_url), 'snsapi_base,snsapi_userinfo');
-//
-//        \Session::put('web_token', $result->get('access_token'));
-//        return $auth->getUser($result->get('openid'), $result->get('access_token'));
-
         $appId = $this->_appId;
         $secret = $this->_secret;
         $auth = new Auth($appId, $secret);
-
         $result = $auth->authorize(url($jump_url), 'snsapi_base,snsapi_userinfo');
-        \Log::debug('result', ['result' => serialize($result)]);;
-        return $result;
+
+        \Session::put('web_token', $result->get('access_token'));
+        return $auth->getUser($result->get('openid'), $result->get('access_token'));
+
+//        $appId = $this->_appId;
+//        $secret = $this->_secret;
+//        $auth = new Auth($appId, $secret);
+//
+//        $result = $auth->authorize(url($jump_url), 'snsapi_base,snsapi_userinfo');
+//        \Log::debug('result', ['result' => serialize($result)]);;
+//        return $result;
     }
 
 } /*class*/

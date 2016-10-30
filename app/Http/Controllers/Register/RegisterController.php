@@ -45,12 +45,12 @@ class RegisterController extends Controller
             'phone.unique' => '手机号已注册',
             'code.required' => '验证码不能为空',
             'code.digits' => '验证码格式不正确',
-            'password.required' => '密码不能为空',
+            //'password.required' => '密码不能为空',
         );
         $validator = \Validator::make($request->all(), [
             'phone' => 'required|digits:11|unique:customers,phone',
             'code' => 'required|digits:6',
-            'password' => 'required'
+            //'password' => 'required'
         ], $messages);
         if ($validator->fails()) {
             return view('register.create', ['errors' => $validator->errors(), 'input' => $request->all()]);
@@ -60,15 +60,13 @@ class RegisterController extends Controller
             $user = \Helper::getUser();
             $customer = new Customer();
             $customer->phone = $request->input('phone');
-            $customer->password = \Hash::make($request->input('password'));;
+            //$customer->password = \Hash::make($request->input('password'));;
             $customer->type_id = 1;
             $customer->openid = $user['openid'];
             $customer->nickname = $user['nickname'];
             $customer->head_image_url = $user['headimgurl'];
             $customer->save();
-
-            \UCenter::register($customer->phone, $request->input('password'));
-
+            //\UCenter::register($customer->phone, $request->input('password'));
             $appId = env('WX_APPID');
             $secret = env('WX_SECRET');
             $js = new Js($appId, $secret);

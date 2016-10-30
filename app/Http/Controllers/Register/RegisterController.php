@@ -63,8 +63,8 @@ class RegisterController extends Controller
             //$customer->password = \Hash::make($request->input('password'));;
             $customer->type_id = 1;
             $customer->openid = $user['openid'];
-            $customer->nickname = $user['nickname'];
-            $customer->head_image_url = $user['headimgurl'];
+            //$customer->nickname = $user['nickname'];
+            //$customer->head_image_url = $user['headimgurl'];
             $customer->save();
             //\UCenter::register($customer->phone, $request->input('password'));
             $appId = env('WX_APPID');

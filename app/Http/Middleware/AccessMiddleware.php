@@ -10,8 +10,8 @@ class AccessMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param  \Illuminate\Http\Request $request
+     * @param  \Closure $next
      * @return mixed
      */
     public function handle($request, Closure $next)
@@ -19,14 +19,10 @@ class AccessMiddleware
         $user = \Helper::getSessionCachedUser();
         $customer = Customer::where('openid', $user['openid'])->first();
         if ($customer && $customer->phone) {
-//            if($customer->password) {
-//                return redirect('/register/set-pwd');
-//            }
             return $next($request);
         } else {
             return redirect('/register/create');
         }
-
     }
 
 } /*class*/

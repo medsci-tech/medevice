@@ -35,7 +35,6 @@ class SupplierController extends Controller
     public function detail(Request $request)
     {
         $customer = \Helper::getCustomer();
-        \UCenter::updateBeans($customer->phone, 'vendor_view', '1');
         return view('supplier.detail', [
             'supplier' => Supplier::find($request->input('id')),
             'attention' => SupplierAttention::where('supplier_id', $request->input('id'))->where('customer_id', $customer->id)->get()->toArray() ? true : false
@@ -60,8 +59,6 @@ class SupplierController extends Controller
             $attention->customer_id = $customer->id;
             $attention->supplier_id = $supplierID;
             $attention->save();
-
-            \UCenter::updateBeans($customer->phone, 'follow_vendor', '1');
         });
         return response()->json(['success' => true]);
     }

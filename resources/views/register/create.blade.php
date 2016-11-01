@@ -14,25 +14,19 @@
         <form action="{{url('/register/store')}}" method="POST" id="signup-form" id="signup-form">
             <div class="ui-form-item ui-form-item-pure ui-border-radius ui-form">
                 <input type="text" placeholder="请输入手机号码" id="phone" name="phone"
-                       value="{{ isset($input) ? $input['phone'] : '' }}">
+                       value="{{ isset($input) ? $input['phone'] : '' }}" required="required">
                 <a href="#" class="ui-icon-close" onclick="clean('phone')"></a>
             </div>
             <h6 class="ui-txt-warning" id="label_phone">{{ isset($errors) ?  $errors->first('phone') : '' }}</h6>
 
-            <div class="ui-form-item ui-form-item-pure ui-border-radius ui-form">
-                <input type="password" placeholder="请输入密码" id="password" name="password"
-                       value="{{ isset($input) ? $input['password'] : '' }}">
-                <a href="#" class="ui-icon-close" onclick="clean('password')"></a>
-            </div>
-            <h6 class="ui-txt-warning" id="label_password">{{ isset($errors) ?  $errors->first('password') : '' }}</h6>
-
             <div class="ui-form-item ui-form-item-r ui-border-radius ui-top ui-form">
                 <input type="text" placeholder="请输入验证码" id="code" name="code"
-                       value="{{ isset($input) ? $input['code'] : '' }}">
+                       value="{{ isset($input) ? $input['code'] : '' }}" required="required">
                 <button type="button" class="ui-border-l" onclick="sendMessage()" id="code_bt">获取验证码</button>
                 <a href="#" class="ui-icon-close" onclick="clean('code')"></a>
             </div>
             <h6 class="ui-txt-warning" id="label_code">{{ isset($errors) ?  $errors->first('code') : '' }}</h6>
+
             <p class="ui-flex ui-flex-pack-center ui-top">
                 <label class="ui-checkbox-s">
                     <input type="checkbox" name="checkbox" checked>
@@ -72,13 +66,13 @@
                     rangelength: "验证码格式不正确"
                 }
             },
-            errorPlacement:function(error,element) {
+            errorPlacement: function (error, element) {
                 if (element.attr("name") == "phone") {
                     $("#label_phone").empty();
                     $("#label_phone").append(error.html())
                 }
 
-                if(element.attr("name") == "code") {
+                if (element.attr("name") == "code") {
                     $("#label_code").empty();
                     $("#label_code").append(error.html());
                 }

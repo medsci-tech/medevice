@@ -49,7 +49,6 @@ class ShopController extends Controller
     public function detail(Request $request)
     {
         $customer = \Helper::getCustomer();
-        \UCenter::updateBeans($customer->phone, 'product_view', '1');
         $product = Product::find($request->input('id'));
         return view('shop.detail', [
             'product' => $product,
@@ -72,9 +71,6 @@ class ShopController extends Controller
         $order->remark = $request->input('remark');
         $order->order_sn = time();
         $order->save();
-
-        \UCenter::updateBeans($customer->phone, 'apply_for_surrogate', '1');
-
         return response()->json(['success' => true]);
     }
 
@@ -106,8 +102,6 @@ class ShopController extends Controller
             $collection->product_id = $productID;
             $collection->customer_id = $customer->id;
             $collection->save();
-
-            \UCenter::updateBeans($customer->phone, 'collect_product', '1');
         });
         return response()->json(['success' => true]);
     }
@@ -139,7 +133,7 @@ class ShopController extends Controller
     {
         $video = ProductVideo::where('product_id', $request->input('product_id'))->get();
         $customer = \Helper::getCustomer();
-        \UCenter::updateBeans($customer->phone, 'video_view', '1');
+        //\UCenter::updateBeans($customer->phone, 'video_view', '1');
         return view('shop.video', [
             'videos' => $video ? $video : []
         ]);
